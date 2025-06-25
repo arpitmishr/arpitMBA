@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Pages Site</title>
+
+    <!-- Internal CSS goes here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to my GitHub Pages Site</h1>
+    </header>
+
+    <main>
+        <p id="message">Hello, World!</p>
+        <button onclick="changeMessage()">Change Message</button>
+    </main>
+
+    <!-- Internal JavaScript goes here -->
+    <script>
+        function changeMessage() {
+            document.getElementById("message").innerHTML = "This message has been changed by JavaScript!";
+        }
+    </script>
+
+</body>
+</html>
