@@ -3,47 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
-
-    <!-- Internal CSS goes here -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        h1 {
-            color: #333;
-            margin-top: 50px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Arpit Mishra - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <header>
-        <h1>Welcome to my GitHub Pages Site</h1>
+        <div class="container">
+            <h1>Arpit Mishra</h1>
+            <p>Business Analyst | MBA | Data Enthusiast</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
-
     <main>
-        <p id="message">Hello, World!</p>
-        <button onclick="changeMessage()">Change Message</button>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>
+                Dynamic and results-driven Business Analyst with experience in data analysis, project management, and business strategy. Passionate about leveraging analytics to drive business growth. 
+            </p>
+        </section>
+        <section id="education" class="container">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <strong>MBA, Business Analytics</strong> – Top University, 2023
+                </li>
+                <li>
+                    <strong>Bachelor of Technology</strong> – Engineering College, 2021
+                </li>
+            </ul>
+        </section>
+        <section id="experience" class="container">
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <strong>Business Analyst</strong> – Company XYZ<br>
+                    <em>2023 - Present</em>
+                    <ul>
+                        <li>Led cross-functional teams to deliver data-driven solutions.</li>
+                        <li>Analyzed business processes and recommended optimizations.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Intern - Data Analytics</strong> – Company ABC<br>
+                    <em>Summer 2022</em>
+                    <ul>
+                        <li>Created dashboards in Excel and PowerBI for sales analysis.</li>
+                        <li>Assisted in preparing business reports for management.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section id="skills" class="container">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Business Analysis</li>
+                <li>Data Analytics (Excel, PowerBI, SQL)</li>
+                <li>Project Management</li>
+                <li>Team Leadership</li>
+                <li>Problem Solving</li>
+            </ul>
+        </section>
+        <section id="contact" class="container">
+            <h2>Contact</h2>
+            <button onclick="showContact()">Show Email</button>
+            <p id="email" style="display:none;">arpitmishr@email.com</p>
+        </section>
     </main>
-
-    <!-- Internal JavaScript goes here -->
-    <script>
-        function changeMessage() {
-            document.getElementById("message").innerHTML = "This message has been changed by JavaScript!";
-        }
-    </script>
-
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Arpit Mishra</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
