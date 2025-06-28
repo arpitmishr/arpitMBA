@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arpit Mishra - Finance & Digital Marketing Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Body Styles */
         :root {
-            --primary-color: #34495e; /* Dark Blue-Gray */
-            --secondary-color: #2c3e50; /* Even Darker Blue-Gray for accents/headers */
-            --accent-color: #3498db; /* Bright Blue */
-            --text-color: #ecf0f1; /* Light Gray for main text */
-            --background-color: #f8f9fa; /* Light background for sections */
-            --dark-text: #2c3e50; /* Dark text for light backgrounds */
-            --border-color: #e0e0e0; /* Light border for separation */
-            --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --primary-color: #2C3E50; /* Dark Blue-Gray - Professional Core */
+            --secondary-color: #34495E; /* Slightly Lighter Dark Blue-Gray */
+            --accent-color: #00BCD4; /* Vibrant Teal/Cyan - Modern & Digital */
+            --light-accent-color: #b3e0e7; /* Lighter shade of accent for subtle highlights */
+            --text-color: #333333; /* Dark text for readability on light backgrounds */
+            --light-text-color: #ecf0f1; /* Light gray for dark backgrounds */
+            --background-main: #f8f9fa; /* Very light gray for body background */
+            --background-section: #ffffff; /* Pure white for section backgrounds */
+            --border-color: #e0e0e0; /* Light gray for borders */
+            --box-shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+            --box-shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s ease-in-out;
         }
 
@@ -24,31 +27,34 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            color: var(--dark-text); /* Default text color for body */
-            background-color: var(--background-color);
+            line-height: 1.7; /* Slightly more spacious line height */
+            color: var(--text-color);
+            background-color: var(--background-main);
+            overflow-x: hidden; /* Prevent horizontal scroll on animations */
         }
 
         /* Header (Hero Section) */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--text-color);
-            padding: 80px 20px;
+            color: var(--light-text-color);
+            padding: 100px 20px; /* More vertical space */
             text-align: center;
-            box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow-medium);
             position: relative;
-            overflow: hidden; /* For potential background animations */
+            overflow: hidden;
+            border-bottom: 5px solid var(--accent-color); /* Stronger visual separation */
         }
 
-        .hero::before { /* Subtle background pattern/texture */
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="10" height="10" fill="rgba(255,255,255,0.05)"/><path d="M-2 2h4v4h-4zM8 8h4v4h-4z" fill="rgba(0,0,0,0.1)"/></svg>');
-            opacity: 0.1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="10" height="10" fill="rgba(255,255,255,0.03)"/><path d="M-2 2h4v4h-4zM8 8h4v4h-4z" fill="rgba(0,0,0,0.08)"/></svg>');
+            opacity: 0.15;
+            z-index: 0;
         }
 
         .hero-content {
@@ -57,46 +63,50 @@
         }
 
         .hero .name {
-            font-size: 3.5em;
-            margin-bottom: 5px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            animation: fadeInDown 1s forwards; /* Animation for name */
+            font-size: 4em; /* Larger name */
+            margin-bottom: 8px;
+            font-weight: 800; /* Extra bold */
+            letter-spacing: 2px;
+            animation: fadeInDown 1s forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero .title {
-            font-size: 1.5em;
+            font-size: 1.7em; /* Larger title */
             margin-top: 0;
-            font-weight: 400;
-            opacity: 0; /* Hidden by default for animation */
-            animation: fadeInUp 1s 0.5s forwards; /* Animation for title */
+            font-weight: 600;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s forwards;
+            color: var(--accent-color); /* Highlight title with accent color */
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .social-links a {
-            color: var(--text-color);
-            margin: 0 15px;
-            font-size: 1.8em;
+            color: var(--light-text-color);
+            margin: 0 20px; /* More space between icons */
+            font-size: 2.2em; /* Larger icons */
             transition: color var(--transition-speed), transform var(--transition-speed);
             display: inline-block;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
 
         .social-links a:hover {
             color: var(--accent-color);
-            transform: translateY(-5px);
+            transform: translateY(-7px) scale(1.1); /* More pronounced hover */
         }
 
         /* Navigation Bar */
         .navbar {
-            background-color: var(--secondary-color);
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: var(--primary-color);
+            padding: 18px 0; /* More padding */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 2px solid var(--accent-color); /* Subtle accent line */
         }
 
         .nav-list {
@@ -109,15 +119,15 @@
         }
 
         .nav-list li {
-            margin: 0 20px;
+            margin: 0 25px; /* More space */
         }
 
         .nav-list a {
-            color: var(--text-color);
+            color: var(--light-text-color);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1em;
-            padding: 5px 0;
+            font-size: 1.2em; /* Slightly larger nav links */
+            padding: 8px 0;
             position: relative;
             transition: color var(--transition-speed);
         }
@@ -126,12 +136,13 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
+            height: 4px; /* Thicker underline */
             background-color: var(--accent-color);
             left: 50%;
-            bottom: -8px;
+            bottom: -10px; /* Lower position */
             transform: translateX(-50%);
             transition: width var(--transition-speed);
+            border-radius: 2px;
         }
 
         .nav-list a:hover::after,
@@ -146,21 +157,21 @@
 
         /* Main Container */
         .container {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1000px; /* Slightly wider container */
+            margin: 50px auto; /* More margin */
+            padding: 0 25px; /* More padding */
         }
 
         /* Section Styles */
         section {
-            background-color: #fff;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-            opacity: 0; /* Initial state for fade-in animation */
-            transform: translateY(20px); /* Initial state for slide-up animation */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            background-color: var(--background-section);
+            padding: 40px; /* More padding */
+            margin-bottom: 40px; /* More margin between sections */
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: var(--box-shadow-light);
+            opacity: 0;
+            transform: translateY(30px); /* More pronounced slide-up */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower, smoother transition */
         }
 
         section.fade-in.visible {
@@ -169,97 +180,124 @@
         }
 
         section h2 {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 2em;
+            margin-bottom: 35px; /* More space below heading */
+            font-size: 2.5em; /* Larger heading */
+            font-weight: 700;
             position: relative;
         }
 
-        section h2::after { /* Underline effect for section titles */
+        section h2::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            width: 80px; /* Wider underline */
+            height: 5px; /* Thicker underline */
+            background: linear-gradient(90deg, var(--accent-color), var(--light-accent-color)); /* Gradient underline */
+            margin: 15px auto 0;
+            border-radius: 3px;
         }
 
         /* Timeline Style for Education & Experience */
         .timeline {
             position: relative;
-            padding: 20px 0;
-            list-style: none;
+            padding: 30px 0;
         }
 
-        .timeline::before { /* Vertical line */
+        .timeline::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 20px; /* Adjust for spacing */
-            width: 4px;
+            left: 20px;
+            width: 5px; /* Thicker line */
             background-color: var(--border-color);
             height: 100%;
+            border-radius: 3px;
         }
 
         .timeline-item {
             position: relative;
-            padding-left: 60px;
-            margin-bottom: 30px;
+            padding-left: 70px; /* More space for circles */
+            margin-bottom: 40px; /* More space between items */
+            background-color: var(--background-main); /* Slight differentiation */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform var(--transition-speed);
         }
 
-        .timeline-item::before { /* Circle on the timeline */
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
             content: '';
             position: absolute;
-            top: 5px;
-            left: 10px;
-            width: 24px;
-            height: 24px;
+            top: 25px; /* Adjusted position for padding */
+            left: 8px; /* Adjusted to align with line */
+            width: 28px; /* Larger circle */
+            height: 28px; /* Larger circle */
             border-radius: 50%;
             background-color: var(--accent-color);
-            border: 4px solid var(--background-color);
-            box-shadow: 0 0 0 2px var(--accent-color);
+            border: 5px solid var(--background-section); /* Border matches section background */
+            box-shadow: 0 0 0 3px var(--accent-color); /* Outer ring */
+            z-index: 1;
         }
 
         .timeline-item h3 {
-            margin: 0 0 5px 0;
-            color: var(--secondary-color);
-            font-size: 1.4em;
+            margin: 0 0 8px 0;
+            color: var(--primary-color);
+            font-size: 1.6em; /* Larger heading */
+            font-weight: 700;
         }
 
         .timeline-item .institution {
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--secondary-color);
             margin-bottom: 5px;
+            font-size: 1.1em;
         }
 
         .timeline-item .details {
             font-style: italic;
-            color: #666;
-            margin-bottom: 10px;
+            color: #777;
+            margin-bottom: 15px;
+            font-size: 0.95em;
         }
 
         .timeline-item .date {
             float: right;
             font-style: normal;
-            font-weight: 600;
-            color: var(--primary-color);
+            font-weight: 700;
+            color: var(--accent-color); /* Date in accent color */
+            font-size: 1.05em;
         }
 
         .timeline-item ul {
-            list-style: disc;
+            list-style: none; /* Remove default bullet */
+            padding-left: 0;
             margin: 0;
-            padding-left: 20px;
+        }
+        .timeline-item ul li {
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            margin-bottom: 8px;
+        }
+        .timeline-item ul li::before {
+            content: '\2022'; /* Unicode bullet point */
+            color: var(--accent-color); /* Accent color bullet */
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            line-height: 1;
         }
 
-        .timeline-item ul li {
-            margin-bottom: 5px;
-        }
 
         .timeline-item a {
             color: var(--accent-color);
             text-decoration: none;
+            font-weight: 600;
         }
 
         .timeline-item a:hover {
@@ -269,78 +307,118 @@
         /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Larger minimum width */
+            gap: 20px; /* More gap */
+            margin-top: 25px;
         }
 
         .skill-item {
-            background-color: var(--background-color);
-            padding: 15px 20px;
-            border-radius: 5px;
+            background-color: var(--background-main);
+            padding: 20px 25px; /* More padding */
+            border-radius: 8px;
             text-align: center;
             font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform var(--transition-speed), background-color var(--transition-speed);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            transition: transform var(--transition-speed), background-color var(--transition-speed), color var(--transition-speed);
+            border: 1px solid var(--border-color); /* Subtle border */
+            position: relative;
+            overflow: hidden; /* For pseudo-element hover effect */
+        }
+        .skill-item::before { /* Animated background on hover */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--accent-color), var(--light-accent-color));
+            z-index: 0;
+            transform: translateX(-100%);
+            transition: transform var(--transition-speed);
+        }
+        .skill-item:hover::before {
+            transform: translateX(0);
         }
 
         .skill-item:hover {
-            transform: translateY(-5px);
-            background-color: var(--accent-color);
-            color: var(--text-color);
+            transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
+            color: var(--light-text-color); /* Text turns white on hover */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .skill-item .level {
+        .skill-item span.level {
             font-weight: 400;
             font-size: 0.9em;
-            display: block; /* Ensures level is on a new line */
-            margin-top: 3px;
+            display: block;
+            margin-top: 5px;
+            color: inherit; /* Inherit color from parent, changes on hover */
+            position: relative;
+            z-index: 1; /* Keep text above animated background */
         }
+        .skill-item span:first-child { /* The skill name */
+            position: relative;
+            z-index: 1; /* Keep text above animated background */
+        }
+
 
         /* Certifications & Interests Lists */
         .certifications-list,
         .interests-list {
             list-style: none;
             padding: 0;
+            margin-top: 25px;
         }
 
         .certifications-list li,
         .interests-list li {
-            background-color: var(--background-color);
-            padding: 15px 20px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: var(--background-main);
+            padding: 18px 25px; /* More padding */
+            margin-bottom: 12px; /* More margin */
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: transform var(--transition-speed);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-left var(--transition-speed);
+            border-left: 5px solid transparent; /* Animated border */
+            font-size: 1.05em;
         }
 
         .certifications-list li:hover,
         .interests-list li:hover {
-            transform: translateX(5px);
+            transform: translateX(8px); /* More pronounced slide */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-left-color: var(--accent-color); /* Highlight with accent color */
+        }
+
+        .certifications-list li .date,
+        .interests-list li .date {
+            font-weight: 600;
+            color: var(--secondary-color);
+            white-space: nowrap; /* Prevent date from wrapping */
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            padding: 30px 20px;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
+            padding: 40px 20px; /* More padding */
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
             font-size: 0.9em;
-            margin-top: 50px;
+            margin-top: 60px; /* More space before footer */
+            border-top: 5px solid var(--accent-color);
         }
 
         .footer p {
-            margin: 5px 0;
+            margin: 8px 0;
+            font-weight: 300;
         }
 
         /* Keyframe Animations */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -351,7 +429,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -360,91 +438,123 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                max-width: 90%;
+            }
+        }
+
         @media (max-width: 768px) {
+            .hero {
+                padding: 80px 15px;
+            }
             .hero .name {
-                font-size: 2.5em;
+                font-size: 3em;
             }
-
             .hero .title {
-                font-size: 1.2em;
+                font-size: 1.4em;
             }
-
+            .social-links a {
+                font-size: 1.8em;
+                margin: 0 15px;
+            }
             .nav-list li {
-                margin: 0 10px;
+                margin: 0 15px;
             }
-
             .nav-list a {
                 font-size: 1em;
             }
-
-            .container {
-                margin: 20px auto;
-                padding: 0 15px;
-            }
-
             section {
-                padding: 20px;
+                padding: 30px;
             }
-
             section h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
-
             .timeline::before {
-                left: 10px;
+                left: 15px;
+                width: 4px;
             }
-
             .timeline-item {
-                padding-left: 40px;
+                padding-left: 55px;
+                padding: 15px; /* Adjust padding for smaller screens */
             }
-
             .timeline-item::before {
-                left: 0px;
-                width: 18px;
-                height: 18px;
-                border-width: 3px;
+                left: 5px;
+                width: 22px;
+                height: 22px;
+                border-width: 4px;
+                top: 20px;
             }
-
+            .timeline-item h3 {
+                font-size: 1.4em;
+            }
             .timeline-item .date {
                 float: none; /* Stack date below on small screens */
                 display: block;
-                margin-top: 5px;
+                margin-top: 8px;
             }
-
             .skills-grid {
-                grid-template-columns: 1fr; /* Single column on small screens */
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            .certifications-list li,
+            .interests-list li {
+                flex-direction: column; /* Stack items vertically */
+                align-items: flex-start;
+                padding: 15px;
+            }
+            .certifications-list li .date,
+            .interests-list li .date {
+                margin-top: 5px;
             }
         }
 
         @media (max-width: 480px) {
             .hero {
-                padding: 60px 15px;
+                padding: 60px 10px;
             }
-
             .hero .name {
-                font-size: 2em;
+                font-size: 2.2em;
             }
-
             .hero .title {
-                font-size: 1em;
+                font-size: 1.1em;
             }
-
             .social-links a {
-                font-size: 1.5em;
+                font-size: 1.6em;
                 margin: 0 10px;
             }
-
             .nav-list {
                 flex-direction: column;
                 align-items: center;
             }
-
             .nav-list li {
-                margin: 10px 0;
+                margin: 8px 0;
             }
-
+            section {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
             section h2 {
-                font-size: 1.5em;
+                font-size: 1.8em;
+                margin-bottom: 25px;
+            }
+            section h2::after {
+                width: 50px;
+                height: 4px;
+            }
+            .timeline-item {
+                padding-left: 40px;
+            }
+            .timeline-item::before {
+                width: 18px;
+                height: 18px;
+                border-width: 3px;
+                top: 15px;
+            }
+            .timeline-item h3 {
+                font-size: 1.2em;
+            }
+            .skill-item {
+                padding: 15px 20px;
             }
         }
     </style>
@@ -453,12 +563,12 @@
     <header class="hero">
         <div class="hero-content">
             <h1 class="name">Arpit Mishra</h1>
-            <p class="title">Finance & Digital Marketing Professional</p>
+            <p class="title">MBA Candidate & Digital Marketing Professional</p>
             <div class="social-links">
-                <a href="mailto:arpitmishra3095@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                <a href="tel:+917017251402"><i class="fas fa-phone"></i></a>
-                <a href="https://linkedin.com/in/arpit-mishra19" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <!-- You can add more social links here -->
+                <a href="mailto:arpitmishra3095@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+917017251402" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                <a href="https://linkedin.com/in/arpit-mishra19" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <!-- Add more relevant social links here like GitHub, Behance, your blog etc. -->
             </div>
         </div>
     </header>
@@ -478,10 +588,10 @@
         <section id="about" class="fade-in">
             <h2>About Me</h2>
             <p>
-                A dynamic and results-driven professional specializing in Finance and Digital Marketing.
-                Founder and Creator of Definepedia (now ArpitMBA.com), an online educational encyclopedia.
-                Passionate about exploring digital innovation in education, researching business models, and creating valuable content.
-                Eager to leverage strong analytical, communication, and digital marketing skills to contribute effectively.
+                A results-driven and innovative professional with a strong foundation in **Finance** and a passion for **Digital Marketing**.
+                Currently pursuing an MBA, I combine analytical rigor with creative problem-solving to drive business growth.
+                As the Founder and Creator of <a href="http://ArpitMBA.com" target="_blank">ArpitMBA.com</a>, an online educational platform, I have hands-on experience in content strategy, SEO, and community engagement.
+                I am eager to leverage my diverse skill set to contribute to dynamic roles in finance, marketing, or management.
             </p>
         </section>
 
@@ -607,11 +717,19 @@
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Get dynamic navbar height
 
-                    // Optional: Update active class for nav items (if implemented)
+                    if (targetElement) {
+                        const targetPosition = targetElement.offsetTop - navbarHeight - 20; // Offset by navbar height + some extra space
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Optional: Update active class for nav items
                     document.querySelectorAll('.nav-list a').forEach(link => {
                         link.classList.remove('active');
                     });
@@ -653,9 +771,11 @@
 
             function updateNavLinkActiveState() {
                 let currentActive = '';
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+
                 sectionsWithIds.forEach(section => {
-                    // Check if section is visible in viewport, considering sticky nav offset
-                    const sectionTop = section.offsetTop - document.querySelector('.navbar').offsetHeight;
+                    // Check if section is visible in viewport, accounting for sticky nav offset
+                    const sectionTop = section.offsetTop - navbarHeight - 50; // Add some buffer
                     const sectionHeight = section.clientHeight;
                     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                         currentActive = section.getAttribute('id');
