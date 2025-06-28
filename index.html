@@ -213,44 +213,6 @@
         }
 
         /* Floating Elements (Mimicking the image) */
-        .floating-element {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 15px;
-            padding: 10px 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            z-index: 2;
-            font-size: 0.9em;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            transform: scale(0);
-            animation: popIn 0.5s ease-out forwards;
-        }
-        .floating-element i {
-            margin-right: 8px;
-            color: var(--primary-accent);
-        }
-
-        .floating-award {
-            top: 15%;
-            left: 20%;
-            animation-delay: 1s;
-        }
-        .floating-uiux {
-            bottom: 25%;
-            left: 10%;
-            animation-delay: 1.2s;
-        }
-        .floating-shopify {
-            top: 40%;
-            right: 15%;
-            animation-delay: 1.4s;
-            border-radius: 50%; /* Circular for this one */
-            padding: 15px;
-        }
         .floating-circle-sm {
             position: absolute;
             width: 15px;
@@ -320,52 +282,6 @@
             border-radius: 2px;
         }
 
-        /* Client Logos Section (New) */
-        .client-logos {
-            text-align: center;
-            padding: 40px;
-            margin-top: 50px;
-            border-radius: 20px;
-            background-color: var(--background-main); /* Match main background */
-            box-shadow: none; /* No shadow for this section */
-        }
-        .client-logos h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6em;
-            color: var(--text-dark);
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        .logos-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            align-items: center;
-        }
-        .logos-grid img, .logos-grid .logo-placeholder {
-            height: 40px; /* Uniform height for logos */
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: filter 0.3s ease, opacity 0.3s ease;
-        }
-        .logos-grid img:hover, .logos-grid .logo-placeholder:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-        .logo-placeholder {
-            width: 100px; /* Placeholder width for custom logos */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--text-gray);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: white;
-        }
-
-
         /* Services/Features Section (Left: Service Cards, Right: Text) */
         .services-section {
             display: flex;
@@ -409,15 +325,14 @@
             font-size: 1.8em;
             margin-right: 20px;
             flex-shrink: 0;
-            background: linear-gradient(45deg, #FFD1DC, #FF69B4); /* Pink/purple gradient */
+            /* Default gradient, can be customized per card if desired */
+            background: linear-gradient(45deg, var(--primary-accent), #FFB74D); /* Orange tones */
             color: white;
         }
-        .service-card:nth-child(2) .icon { /* Example: different gradient for second card */
-            background: linear-gradient(45deg, #A8E063, #56AB2F); /* Green gradient */
-        }
-        .service-card:nth-child(3) .icon { /* Example: different gradient for third card */
-            background: linear-gradient(45deg, #87CEEB, #4682B4); /* Blue gradient */
-        }
+        /* Custom gradients for service icons to match a professional, modern look */
+        .service-card:nth-child(1) .icon { background: linear-gradient(45deg, #FF6F61, #FFB74D); /* Warm red-orange */ }
+        .service-card:nth-child(2) .icon { background: linear-gradient(45deg, #4CAF50, #81C784); /* Green */ }
+        .service-card:nth-child(3) .icon { background: linear-gradient(45deg, #2196F3, #64B5F6); /* Blue */ }
 
 
         .service-card-content h4 {
@@ -769,16 +684,11 @@
                 padding: 12px 30px;
                 font-size: 1em;
             }
-            .floating-element {
-                padding: 8px 12px;
-                font-size: 0.8em;
+            /* Adjust floating circles for smaller screens if they overlap too much */
+            .floating-circle-sm, .floating-circle-lg {
+                display: none; /* Hide for very small screens to avoid clutter */
             }
-            .floating-element i {
-                margin-right: 5px;
-            }
-            .floating-award { top: 5%; left: 5%; }
-            .floating-uiux { bottom: 10%; left: 5%; }
-            .floating-shopify { top: 20%; right: 5%; padding: 10px; } /* Adjust size */
+
 
             section {
                 padding: 30px;
@@ -858,23 +768,14 @@
         <div class="hero-content-left">
             <h1>Hy! I Am Arpit Mishra</h1>
             <p>MBA Candidate & Digital Marketing Professional focusing on innovative solutions and strategic growth.</p>
-            <a href="#contact" class="action-btn">Hire Me</a>
+            <a href="mailto:arpitmishra3095@gmail.com" class="action-btn">Hire Me</a>
         </div>
         <div class="hero-image-right">
-            <!-- Placeholder for your image, or you can add a generic business illustration -->
-            <img src="https://via.placeholder.com/400x500/FFDAB9/2A2A2A?text=Your+Professional+Image" alt="Arpit Mishra">
+            <!-- Placeholder for your image. Replace 'https://via.placeholder.com/...' with your actual professional photo URL -->
+            <img src="https://via.placeholder.com/400x500/FFDAB9/2A2A2A?text=Your+Professional+Photo" alt="Arpit Mishra">
         </div>
 
-        <!-- Floating Elements -->
-        <div class="floating-element floating-award" style="animation-delay: 1.0s;">
-            <i class="fas fa-award"></i> Best Awards
-        </div>
-        <div class="floating-element floating-uiux" style="animation-delay: 1.2s;">
-            <i class="fas fa-lightbulb"></i> UI/UX Insights
-        </div>
-        <div class="floating-element floating-shopify" style="animation-delay: 1.4s;">
-            <i class="fab fa-shopify"></i>
-        </div>
+        <!-- Decorative Floating Elements (not tied to specific resume content) -->
         <div class="floating-circle-sm circle1" style="animation-delay: 0.5s;"></div>
         <div class="floating-circle-lg circle2" style="animation-delay: 0.8s;"></div>
         <div class="floating-circle-sm circle3" style="animation-delay: 1.1s;"></div>
@@ -892,18 +793,7 @@
             </p>
         </section>
 
-        <section class="client-logos fade-in">
-            <h3>Work For All This Brand & Client</h3>
-            <div class="logos-grid">
-                <!-- Replace with actual SVG or PNG logos if you have them -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram Logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Facebook_icon.svg" alt="Facebook Logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
-                <div class="logo-placeholder">Upwork</div>
-                <div class="logo-placeholder">Shopify</div>
-            </div>
-        </section>
+        <!-- Removed "Work For All This Brand & Client" section as it was not in your resume -->
 
         <section class="services-section fade-in">
             <div class="services-list">
@@ -911,7 +801,7 @@
                     <div class="icon"><i class="fas fa-bullhorn"></i></div>
                     <div class="service-card-content">
                         <h4>Digital Marketing Strategy</h4>
-                        <p>Crafting data-driven strategies to boost online presence and engagement.</p>
+                        <p>Crafting data-driven strategies for online presence and engagement.</p>
                     </div>
                 </div>
                 <div class="service-card">
@@ -924,8 +814,8 @@
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-code"></i></div>
                     <div class="service-card-content">
-                        <h4>Web Content Development</h4>
-                        <p>Creating compelling educational content for online platforms (ArpitMBA.com).</p>
+                        <h4>Educational Content Development</h4>
+                        <p>Creating compelling content for online platforms like ArpitMBA.com.</p>
                     </div>
                 </div>
             </div>
@@ -936,7 +826,7 @@
                     I offer a unique blend of skills to help businesses grow, optimize operations, and connect with their audience.
                     From market research and financial modeling to SEO and content creation, I am committed to delivering tangible results.
                 </p>
-                <a href="#contact" class="action-btn">Hire Me</a>
+                <a href="mailto:arpitmishra3095@gmail.com" class="action-btn">Connect With Me</a>
             </div>
         </section>
 
@@ -1063,27 +953,25 @@
             hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 hamburger.classList.toggle('open');
-                document.body.classList.toggle('no-scroll'); // Optional: disable body scroll when mobile menu is open
+                document.body.classList.toggle('no-scroll');
             });
 
-            // Smooth scrolling for navigation links
             document.querySelectorAll('.nav-links a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    const topOffset = document.querySelector('.top-nav').offsetHeight; // Height of sticky nav
+                    const topOffset = document.querySelector('.top-nav').offsetHeight;
 
                     if (targetElement) {
                         const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - topOffset - 20; // Added extra padding
+                        const offsetPosition = elementPosition + window.pageYOffset - topOffset - 20;
 
                         window.scrollTo({
                             top: offsetPosition,
                             behavior: 'smooth'
                         });
 
-                        // Close mobile menu if open after clicking a link
                         if (navLinks.classList.contains('active')) {
                             navLinks.classList.remove('active');
                             hamburger.classList.remove('open');
@@ -1093,7 +981,6 @@
                 });
             });
 
-            // Intersection Observer for fade-in animations on sections
             const sections = document.querySelectorAll('section.fade-in');
             const observerOptions = {
                 root: null,
@@ -1112,7 +999,6 @@
                 sectionObserver.observe(section);
             });
 
-            // Update current year in footer
             const currentYearSpan = document.getElementById('current-year');
             if (currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
