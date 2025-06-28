@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arpit Mishra - Finance & Digital Marketing Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Body Styles */
         :root {
-            --primary-color: #2C3E50; /* Dark Blue-Gray - Professional Core */
-            --secondary-color: #34495E; /* Slightly Lighter Dark Blue-Gray */
+            --primary-color: #1A2C3B; /* Very Dark Blue-Gray - Deep Background */
+            --secondary-color: #2C3E50; /* Slightly Lighter Dark Blue-Gray */
             --accent-color: #00BCD4; /* Vibrant Teal/Cyan - Modern & Digital */
-            --light-accent-color: #b3e0e7; /* Lighter shade of accent for subtle highlights */
+            --light-accent-color: #64D8EB; /* Brighter teal for gradients/glows */
+            --active-nav-bg: #0097A7; /* A slightly darker, more intense teal for active state */
             --text-color: #333333; /* Dark text for readability on light backgrounds */
-            --light-text-color: #ecf0f1; /* Light gray for dark backgrounds */
+            --light-text-color: #ECF0F1; /* Light gray for dark backgrounds */
             --background-main: #f8f9fa; /* Very light gray for body background */
             --background-section: #ffffff; /* Pure white for section backgrounds */
             --border-color: #e0e0e0; /* Light gray for borders */
             --box-shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
             --box-shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s ease-in-out;
+            --fast-transition: 0.2s ease-in-out; /* For quick animations like menu toggle */
         }
 
         body {
@@ -109,50 +111,115 @@
             border-bottom: 2px solid var(--accent-color); /* Subtle accent line */
         }
 
-        .nav-list {
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
         }
 
-        .nav-list li {
+        .nav-menu li {
             margin: 0 25px; /* More space */
         }
 
-        .nav-list a {
+        .nav-menu a {
             color: var(--light-text-color);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.2em; /* Slightly larger nav links */
-            padding: 8px 0;
+            padding: 10px 15px; /* Padding inside the clickable area */
             position: relative;
+            overflow: hidden; /* For background animation */
+            display: flex;
+            align-items: center;
+            border-radius: 8px; /* Slightly rounded for modern button feel */
+            transition: color var(--transition-speed), background-color var(--transition-speed);
+            text-transform: uppercase; /* Bolder look */
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a i {
+            margin-right: 8px; /* Space between icon and text */
+            font-size: 0.9em; /* Slightly smaller icon relative to text */
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--light-accent-color)); /* Gradient fill */
+            z-index: 0;
+            transform: scaleX(0); /* Start hidden */
+            transform-origin: left;
+            transition: transform var(--transition-speed);
+            border-radius: 8px;
+        }
+
+        .nav-menu a:hover::before {
+            transform: scaleX(1); /* Expand on hover */
+        }
+
+        .nav-menu a span {
+            position: relative; /* Keep text above pseudo-element */
+            z-index: 1;
             transition: color var(--transition-speed);
         }
 
-        .nav-list a::after {
-            content: '';
+        .nav-menu a:hover span,
+        .nav-menu a:hover i {
+            color: var(--primary-color); /* Text darkens on hover */
+        }
+        .nav-menu a.active span,
+        .nav-menu a.active i {
+            color: var(--primary-color); /* Text darkens on active */
+        }
+
+        .nav-menu a.active {
+            background: linear-gradient(90deg, var(--accent-color), var(--light-accent-color)); /* Active state is fully filled */
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.4); /* Subtle glow for active */
+        }
+        .nav-menu a.active::before {
+            transform: scaleX(1); /* Ensure background is fully visible */
+        }
+
+        /* Hamburger menu for mobile */
+        .nav-toggle {
+            display: none; /* Hidden by default on desktop */
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
             position: absolute;
-            width: 0;
-            height: 4px; /* Thicker underline */
-            background-color: var(--accent-color);
-            left: 50%;
-            bottom: -10px; /* Lower position */
-            transform: translateX(-50%);
-            transition: width var(--transition-speed);
-            border-radius: 2px;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001; /* Above navbar */
         }
 
-        .nav-list a:hover::after,
-        .nav-list a.active::after {
+        .nav-toggle span {
+            display: block;
             width: 100%;
+            height: 3px;
+            background-color: var(--light-text-color);
+            border-radius: 2px;
+            transition: all var(--fast-transition);
         }
 
-        .nav-list a:hover,
-        .nav-list a.active {
-            color: var(--accent-color);
+        /* Hamburger animation */
+        .nav-toggle.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         /* Main Container */
@@ -293,7 +360,6 @@
             line-height: 1;
         }
 
-
         .timeline-item a {
             color: var(--accent-color);
             text-decoration: none;
@@ -359,7 +425,6 @@
             position: relative;
             z-index: 1; /* Keep text above animated background */
         }
-
 
         /* Certifications & Interests Lists */
         .certifications-list,
@@ -445,6 +510,45 @@
         }
 
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex; /* Show hamburger on mobile */
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Start off-screen */
+                width: 100%;
+                height: 100vh; /* Full viewport height */
+                background-color: var(--primary-color); /* Dark overlay */
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right var(--transition-speed) ease-in-out;
+                z-index: 999; /* Below toggle, above content */
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            }
+
+            .nav-menu.active {
+                right: 0; /* Slide in */
+            }
+
+            .nav-menu li {
+                margin: 20px 0; /* More spacing for vertical menu */
+            }
+
+            .nav-menu a {
+                font-size: 1.5em; /* Larger links in mobile menu */
+                padding: 15px 25px;
+                width: 80%; /* Make links wider */
+                justify-content: center; /* Center text in wider links */
+            }
+
+            .nav-menu a i {
+                font-size: 1.2em;
+                margin-right: 15px;
+            }
+
             .hero {
                 padding: 80px 15px;
             }
@@ -457,12 +561,6 @@
             .social-links a {
                 font-size: 1.8em;
                 margin: 0 15px;
-            }
-            .nav-list li {
-                margin: 0 15px;
-            }
-            .nav-list a {
-                font-size: 1em;
             }
             section {
                 padding: 30px;
@@ -522,13 +620,6 @@
                 font-size: 1.6em;
                 margin: 0 10px;
             }
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-            }
-            .nav-list li {
-                margin: 8px 0;
-            }
             section {
                 padding: 20px;
                 margin-bottom: 25px;
@@ -574,13 +665,18 @@
     </header>
 
     <nav class="navbar">
-        <ul class="nav-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#interests">Interests</a></li>
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navList">
+            <li><a href="#about"><i class="fas fa-user-tie"></i> <span>About</span></a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>
+            <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+            <li><a href="#skills"><i class="fas fa-cogs"></i> <span>Skills</span></a></li>
+            <li><a href="#certifications"><i class="fas fa-certificate"></i> <span>Certifications</span></a></li>
+            <li><a href="#interests"><i class="fas fa-star"></i> <span>Interests</span></a></li>
         </ul>
     </nav>
 
@@ -712,14 +808,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.getElementById('navToggle');
+            const navList = document.getElementById('navList');
+
+            // Toggle mobile navigation menu
+            navToggle.addEventListener('click', () => {
+                navList.classList.toggle('active');
+                navToggle.classList.toggle('open'); // For hamburger animation
+                document.body.classList.toggle('no-scroll'); // Prevent scrolling when menu is open
+            });
+
             // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            document.querySelectorAll('.nav-menu a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight; // Get dynamic navbar height
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
 
                     if (targetElement) {
                         const targetPosition = targetElement.offsetTop - navbarHeight - 20; // Offset by navbar height + some extra space
@@ -727,13 +833,17 @@
                             top: targetPosition,
                             behavior: 'smooth'
                         });
+
+                        // Close mobile menu if open
+                        if (navList.classList.contains('active')) {
+                            navList.classList.remove('active');
+                            navToggle.classList.remove('open');
+                            document.body.classList.remove('no-scroll');
+                        }
                     }
 
-                    // Optional: Update active class for nav items
-                    document.querySelectorAll('.nav-list a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
+                    // Update active class for nav items
+                    updateNavLinkActiveState(); // Call immediately on click to update before scroll finishes
                 });
             });
 
@@ -766,7 +876,7 @@
             }
 
             // Highlight active nav link based on scroll position
-            const navLinks = document.querySelectorAll('.nav-list a');
+            const navLinks = document.querySelectorAll('.nav-menu a');
             const sectionsWithIds = document.querySelectorAll('main section[id]');
 
             function updateNavLinkActiveState() {
