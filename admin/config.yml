@@ -1,17 +1,21 @@
+# The backend connects to your Git repository
 backend:
-  name: git-gateway
-  branch: main # Or master, depending on your repository's default branch
+  name: git-gateway # Uses Netlify Identity for authentication
+  branch: main # Or master, depending on your default branch name
 
-media_folder: "uploads" # Where uploaded images will be stored
-public_folder: "/uploads" # The public path for uploaded images
+# This is where your uploaded images will be stored in the repository
+media_folder: "uploads"
+# This is the public-facing path for the images in your live site
+public_folder: "/uploads"
 
+# This defines the content types you can edit. We have one for "Blog".
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "_posts" # The folder where blog posts will be stored
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
+  - name: "blog" # The internal name for the collection
+    label: "Blog" # The name that appears in the CMS UI
+    folder: "_posts" # The folder in your repo where posts are saved
+    create: true # Allows creating new posts
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # How new files will be named
+    fields: # Defines the fields for each post
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
