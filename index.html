@@ -9,18 +9,16 @@
     <style>
         /* General Body Styles */
         :root {
-            /* Colors inspired by the image */
-            --background-light: #FDFDFD; /* Very light, almost white background */
-            --text-dark: #2A2A2A; /* Dark text for readability */
-            --text-gray: #666666; /* Lighter text for descriptions */
-            --primary-accent: #FF8C42; /* Vibrant Orange/Peach from buttons */
-            --secondary-accent: #6C5CE7; /* A subtle purple/blue for variety, or use a lighter orange */
-            --header-gradient-start: #FFDAB9; /* Peach-puff */
-            --header-gradient-end: #E0FFFF; /* Light Cyan */
+            --background-light: #FDFDFD;
+            --text-dark: #2A2A2A;
+            --text-gray: #666666;
+            --primary-accent: #FF8C42;
+            --secondary-accent: #6C5CE7;
+            --header-gradient-start: #FFDAB9;
+            --header-gradient-end: #E0FFFF;
             --card-bg: #FFFFFF;
             --border-color: #EFEFEF;
 
-            /* Shadows & Transitions */
             --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
             --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
             --transition-smooth: 0.4s ease-in-out;
@@ -35,6 +33,10 @@
             color: var(--text-dark);
             background-color: var(--background-light);
             overflow-x: hidden;
+        }
+        
+        body.no-scroll {
+            overflow: hidden;
         }
 
         /* Top Navigation */
@@ -61,12 +63,10 @@
         .top-nav .nav-links {
             list-style: none;
             display: flex;
+            align-items: center;
             margin: 0;
             padding: 0;
-        }
-
-        .top-nav .nav-links li {
-            margin-left: 30px;
+            gap: 30px;
         }
 
         .top-nav .nav-links a {
@@ -92,7 +92,7 @@
         }
 
         .top-nav .contact-btn:hover {
-            background-color: #e67d30; /* Slightly darker orange */
+            background-color: #e67d30;
             transform: translateY(-2px);
         }
 
@@ -102,7 +102,7 @@
             flex-direction: column;
             cursor: pointer;
             width: 30px;
-            height: 20px;
+            height: 22px;
             justify-content: space-between;
             z-index: 1001;
         }
@@ -116,7 +116,7 @@
         }
 
         .hamburger.open .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+            transform: translateY(9.5px) rotate(45deg);
         }
 
         .hamburger.open .bar:nth-child(2) {
@@ -124,7 +124,7 @@
         }
 
         .hamburger.open .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-9.5px) rotate(-45deg);
         }
 
         /* Hero Section */
@@ -135,10 +135,11 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
+            gap: 40px;
             position: relative;
-            overflow: hidden; /* For floating elements */
-            min-height: 70vh; /* Ensure it takes up significant space */
-            border-bottom-left-radius: 50px; /* Rounded corners like the image */
+            overflow: hidden;
+            min-height: 70vh;
+            border-bottom-left-radius: 50px;
             border-bottom-right-radius: 50px;
             margin-bottom: 50px;
         }
@@ -147,7 +148,6 @@
             flex: 1;
             min-width: 300px;
             max-width: 550px;
-            padding-right: 40px;
             text-align: left;
             position: relative;
             z-index: 1;
@@ -156,20 +156,16 @@
         .hero-content-left h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 3.8em;
+            font-size: 3.5em;
             line-height: 1.1;
             margin-bottom: 15px;
             color: var(--text-dark);
-            animation: slideInLeft 1s forwards;
-            opacity: 0;
         }
 
         .hero-content-left p {
             font-size: 1.1em;
             color: var(--text-gray);
             margin-bottom: 30px;
-            animation: slideInLeft 1s 0.3s forwards;
-            opacity: 0;
         }
 
         .hero-content-left .action-btn {
@@ -182,8 +178,6 @@
             font-size: 1.1em;
             display: inline-block;
             transition: var(--button-transition);
-            animation: slideInLeft 1s 0.6s forwards;
-            opacity: 0;
         }
 
         .hero-content-left .action-btn:hover {
@@ -195,7 +189,7 @@
         .hero-image-right {
             flex: 1;
             min-width: 300px;
-            max-width: 500px;
+            max-width: 450px;
             position: relative;
             z-index: 1;
             display: flex;
@@ -204,44 +198,30 @@
         }
 
         .hero-image-right img {
-            max-width: 90%;
+            max-width: 100%;
             height: auto;
-            border-radius: 20px; /* Soft edges for image */
+            border-radius: 20px;
             box-shadow: var(--shadow-medium);
-            animation: fadeInScale 1.2s forwards;
-            opacity: 0;
         }
 
-        /* Floating Elements (Mimicking the image) */
-        .floating-circle-sm {
+        /* Floating Elements */
+        .floating-circle-sm, .floating-circle-lg {
             position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: var(--primary-accent);
             border-radius: 50%;
-            opacity: 0.6;
-            animation: float 5s ease-in-out infinite alternate;
             z-index: 0;
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite alternate;
         }
-        .floating-circle-lg {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: var(--secondary-accent);
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: float 7s ease-in-out infinite alternate-reverse;
-            z-index: 0;
-        }
+        .floating-circle-sm { width: 15px; height: 15px; background-color: var(--primary-accent); }
+        .floating-circle-lg { width: 25px; height: 25px; background-color: var(--secondary-accent); animation-duration: 8s; }
         .circle1 { top: 10%; left: 5%; animation-delay: 0.5s; }
         .circle2 { bottom: 20%; right: 5%; animation-delay: 1s; }
         .circle3 { top: 30%; right: 30%; animation-delay: 1.5s; }
         .circle4 { bottom: 5%; left: 40%; animation-delay: 2s; }
 
-
-        /* Core Sections Styling (reusing from previous iteration, adapting to new theme) */
+        /* Core Sections Styling */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 50px auto;
             padding: 0 25px;
         }
@@ -250,7 +230,7 @@
             background-color: var(--card-bg);
             padding: 40px;
             margin-bottom: 40px;
-            border-radius: 20px; /* More rounded */
+            border-radius: 20px;
             box-shadow: var(--shadow-light);
             opacity: 0;
             transform: translateY(30px);
@@ -264,10 +244,11 @@
 
         section h2 {
             font-family: 'Montserrat', sans-serif;
-            color: var(--primary-accent); /* Main headings in accent color */
+            color: var(--primary-accent);
             text-align: center;
+            margin-top: 0;
             margin-bottom: 35px;
-            font-size: 2.2em; /* Adjusted for image's heading style */
+            font-size: 2.2em;
             font-weight: 700;
             position: relative;
         }
@@ -277,18 +258,17 @@
             display: block;
             width: 60px;
             height: 4px;
-            background-color: var(--secondary-accent); /* Underline color */
+            background-color: var(--secondary-accent);
             margin: 15px auto 0;
             border-radius: 2px;
         }
 
-        /* Services/Features Section (Left: Service Cards, Right: Text) */
+        /* Services/Features Section */
         .services-section {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
-            align-items: flex-start; /* Align to top */
-            margin-top: 50px;
+            align-items: center;
         }
 
         .services-list {
@@ -306,6 +286,7 @@
             box-shadow: var(--shadow-light);
             display: flex;
             align-items: flex-start;
+            gap: 20px;
             transition: transform var(--transition-smooth);
             border: 1px solid var(--border-color);
         }
@@ -323,17 +304,12 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8em;
-            margin-right: 20px;
             flex-shrink: 0;
-            /* Default gradient, can be customized per card if desired */
-            background: linear-gradient(45deg, var(--primary-accent), #FFB74D); /* Orange tones */
             color: white;
         }
-        /* Custom gradients for service icons to match a professional, modern look */
-        .service-card:nth-child(1) .icon { background: linear-gradient(45deg, #FF6F61, #FFB74D); /* Warm red-orange */ }
-        .service-card:nth-child(2) .icon { background: linear-gradient(45deg, #4CAF50, #81C784); /* Green */ }
-        .service-card:nth-child(3) .icon { background: linear-gradient(45deg, #2196F3, #64B5F6); /* Blue */ }
-
+        .service-card:nth-child(1) .icon { background: linear-gradient(45deg, #FF6F61, #FFB74D); }
+        .service-card:nth-child(2) .icon { background: linear-gradient(45deg, #4CAF50, #81C784); }
+        .service-card:nth-child(3) .icon { background: linear-gradient(45deg, #2196F3, #64B5F6); }
 
         .service-card-content h4 {
             font-family: 'Montserrat', sans-serif;
@@ -349,28 +325,18 @@
         }
 
         .services-text-content {
-            flex: 1.5;
+            flex: 1.2;
             min-width: 300px;
-            padding-left: 40px;
             text-align: left;
         }
 
         .services-text-content h2 {
-            text-align: left; /* Override section h2 alignment */
-            font-family: 'Montserrat', sans-serif;
+            text-align: left;
             color: var(--text-dark);
-            margin-bottom: 20px;
-            font-size: 2.2em;
-            font-weight: 700;
         }
         .services-text-content h2::after {
-            margin-left: 0; /* Align underline to left */
+            margin-left: 0;
             background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
-        }
-
-        .services-text-content p {
-            color: var(--text-gray);
-            margin-bottom: 30px;
         }
 
         .services-text-content .action-btn {
@@ -389,28 +355,26 @@
             box-shadow: 0 5px 10px rgba(255, 140, 66, 0.3);
         }
 
-
-        /* Timeline Styles (reused) */
+        /* --- Timeline Styles (Robust Flexbox Fix) --- */
         .timeline {
             position: relative;
-            padding: 30px 0;
+            padding: 30px 0 0 0;
         }
         .timeline::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 20px;
+            top: 12px; /* Align with top of first dot */
+            left: 12px; /* Center with the dot */
             width: 4px;
             background-color: var(--border-color);
-            height: 100%;
+            height: calc(100% - 12px);
             border-radius: 2px;
         }
         .timeline-item {
             position: relative;
-            padding-left: 70px;
+            padding: 20px 20px 20px 50px; /* Increased left padding for line */
             margin-bottom: 30px;
-            background-color: var(--card-bg); /* Corrected variable */
-            padding: 20px;
+            background-color: var(--card-bg);
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
@@ -419,30 +383,46 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        .timeline-item::before {
+        .timeline-item::before { /* The dot */
             content: '';
             position: absolute;
             top: 25px;
-            left: 8px;
+            left: 0;
             width: 24px;
             height: 24px;
             border-radius: 50%;
             background-color: var(--primary-accent);
-            border: 4px solid var(--background-light); /* Corrected variable */
+            border: 4px solid var(--background-light);
             box-shadow: 0 0 0 2px var(--primary-accent);
             z-index: 1;
         }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+        .timeline-title-group { flex-grow: 1; }
         .timeline-item h3 {
             font-family: 'Montserrat', sans-serif;
-            margin: 0 0 8px 0;
+            margin: 0;
             color: var(--text-dark);
-            font-size: 1.4em;
+            font-size: 1.3em;
             font-weight: 600;
         }
         .timeline-item .institution {
             font-weight: 500;
             color: var(--text-gray);
-            margin-bottom: 5px;
+            margin: 4px 0 0 0;
+        }
+        .timeline-item .date {
+            flex-shrink: 0;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-accent);
+            font-size: 0.95em;
+            padding-top: 4px; /* Align with title baseline */
         }
         .timeline-item .details {
             font-style: italic;
@@ -450,24 +430,8 @@
             margin-bottom: 10px;
             font-size: 0.95em;
         }
-        .timeline-item .date {
-            float: right;
-            font-style: normal;
-            font-weight: 600;
-            color: var(--primary-accent);
-            font-size: 0.95em;
-        }
-        .timeline-item ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-        .timeline-item ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 5px;
-            color: var(--text-dark);
-        }
+        .timeline-item ul { list-style: none; padding-left: 0; margin: 0; }
+        .timeline-item ul li { position: relative; padding-left: 20px; margin-bottom: 5px; color: var(--text-dark); }
         .timeline-item ul li::before {
             content: '\2022';
             color: var(--primary-accent);
@@ -476,23 +440,17 @@
             font-size: 1.1em;
             line-height: 1;
         }
-        .timeline-item a {
-            color: var(--primary-accent);
-            text-decoration: none;
-        }
-        .timeline-item a:hover {
-            text-decoration: underline;
-        }
+        .timeline-item a { color: var(--primary-accent); text-decoration: none; }
+        .timeline-item a:hover { text-decoration: underline; }
 
-        /* Skills Grid (reused, adapted) */
+        /* Skills Grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 25px;
         }
         .skill-item {
-            background-color: var(--card-bg); /* Corrected variable */
+            background-color: var(--card-bg);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
@@ -515,7 +473,7 @@
             color: inherit;
         }
 
-        /* Certifications & Interests Lists (reused, adapted) */
+        /* Certifications & Interests Lists */
         .certifications-list,
         .interests-list {
             list-style: none;
@@ -524,14 +482,16 @@
         }
         .certifications-list li,
         .interests-list li {
-            background-color: var(--card-bg); /* Corrected variable */
+            background-color: var(--card-bg);
             padding: 18px 25px;
             margin-bottom: 12px;
             border-radius: 12px;
             box-shadow: var(--shadow-light);
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
             transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-left var(--transition-smooth);
             border-left: 5px solid transparent;
             font-size: 1.05em;
@@ -542,21 +502,20 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.1);
             border-left-color: var(--primary-accent);
         }
-        .certifications-list li .date,
-        .interests-list li .date {
+        .certifications-list li .date {
             font-weight: 500;
             color: var(--text-gray);
             white-space: nowrap;
+            font-size: 0.9em;
         }
 
-        /* Blog Section Styles (NEW) */
+        /* Blog Section Styles */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 25px;
         }
-
         .blog-post-card {
             background-color: var(--card-bg);
             border-radius: 15px;
@@ -567,26 +526,21 @@
             flex-direction: column;
             border: 1px solid var(--border-color);
         }
-
         .blog-post-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-medium);
         }
-
         .blog-post-card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
         }
-
         .blog-post-content {
             padding: 25px;
-            flex-grow: 1; /* Allow content to grow */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-
         .blog-post-content .meta {
             font-size: 0.85em;
             color: var(--text-gray);
@@ -595,28 +549,20 @@
             justify-content: space-between;
             align-items: center;
         }
-
-        .blog-post-content .meta .category {
-            font-weight: 600;
-            color: var(--primary-accent);
-        }
-
+        .blog-post-content .meta .category { font-weight: 600; color: var(--primary-accent); }
         .blog-post-content h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.5em;
+            font-size: 1.4em;
             color: var(--text-dark);
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin: 0 0 15px 0;
             line-height: 1.3;
         }
-
         .blog-post-content p {
             font-size: 0.95em;
             color: var(--text-gray);
             margin-bottom: 20px;
-            flex-grow: 1; /* Allow paragraph to grow and push button down */
+            flex-grow: 1;
         }
-
         .blog-post-content .read-more {
             display: inline-block;
             background-color: var(--primary-accent);
@@ -626,214 +572,95 @@
             text-decoration: none;
             font-weight: 600;
             transition: var(--button-transition);
-            align-self: flex-start; /* Align button to the start (left) */
+            align-self: flex-start;
         }
-
-        .blog-post-content .read-more:hover {
-            background-color: #e67d30;
-            transform: translateY(-2px);
-        }
-
+        .blog-post-content .read-more:hover { background-color: #e67d30; transform: translateY(-2px); }
 
         /* Footer */
         .footer {
             text-align: center;
             padding: 40px 20px;
-            background-color: var(--text-dark); /* Dark footer background */
+            background-color: var(--text-dark);
             color: var(--background-light);
             font-size: 0.9em;
             margin-top: 60px;
-            border-top-left-radius: 50px; /* Rounded corners */
+            border-top-left-radius: 50px;
             border-top-right-radius: 50px;
         }
-        .footer p {
-            margin: 8px 0;
-            font-weight: 300;
-        }
+        .footer p { margin: 8px 0; font-weight: 300; }
 
-        /* Keyframe Animations (reused and new) */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        /* Keyframe Animations */
         @keyframes float {
             0% { transform: translateY(0px) translateX(0px); }
             50% { transform: translateY(-10px) translateX(5px); }
             100% { transform: translateY(0px) translateX(0px); }
         }
 
-
-        /* Responsive Design */
+        /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .hero-content-left h1 {
-                font-size: 3em;
-            }
-            .top-nav {
-                padding: 15px 25px;
-            }
+            .hero-content-left h1 { font-size: 3em; }
+            .top-nav { padding: 15px 25px; }
             .hero-section {
                 padding: 60px 25px;
                 flex-direction: column;
                 text-align: center;
-                border-bottom-left-radius: 30px;
-                border-bottom-right-radius: 30px;
+                border-radius: 0 0 30px 30px;
             }
-            .hero-content-left {
-                padding-right: 0;
-                order: 2; /* Move content below image on mobile */
-                text-align: center;
-            }
-            .hero-image-right {
-                order: 1; /* Move image to top on mobile */
-                margin-bottom: 40px;
-            }
-            .services-section {
-                flex-direction: column;
-            }
-            .services-text-content {
-                padding-left: 0;
-                text-align: center;
-            }
-            .services-text-content h2 {
-                text-align: center;
-            }
-            .services-text-content h2::after {
-                margin: 15px auto 0;
-            }
+            .hero-content-left { padding-right: 0; order: 2; text-align: center; }
+            .hero-image-right { order: 1; margin-bottom: 40px; }
+            .services-section { flex-direction: column; }
+            .services-text-content { padding-left: 0; text-align: center; }
+            .services-text-content h2 { text-align: center; }
+            .services-text-content h2::after { margin: 15px auto 0; }
         }
 
         @media (max-width: 768px) {
             .top-nav .nav-links {
-                display: none; /* Hide desktop nav links */
+                display: none;
                 flex-direction: column;
                 position: fixed;
                 top: 0;
-                right: -100%; /* Start off-screen */
+                left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent overlay */
+                background-color: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(10px);
                 -webkit-backdrop-filter: blur(10px);
                 justify-content: center;
                 align-items: center;
-                transition: right 0.4s ease;
+                gap: 0;
             }
+            .top-nav .nav-links.active { display: flex; }
+            .top-nav .nav-links li { margin: 20px 0; }
+            .top-nav .nav-links a { font-size: 1.5em; font-weight: 600; }
+            .top-nav .nav-links .contact-btn { display: inline-block; margin-top: 20px; }
+            .top-nav > .nav-links > li:last-child { display: none; } /* Hide desktop contact button */
+            .hamburger { display: flex; }
 
-            .top-nav .nav-links.active {
-                right: 0; /* Slide in */
-                display: flex;
-            }
+            .hero-content-left h1 { font-size: 2.5em; }
+            .hero-content-left p { font-size: 1em; }
+            .floating-circle-sm, .floating-circle-lg { display: none; }
 
-            .top-nav .nav-links li {
-                margin: 20px 0;
-            }
-
-            .top-nav .nav-links a {
-                font-size: 1.5em; /* Larger mobile links */
-                font-weight: 600;
-            }
-            .top-nav .contact-btn {
-                display: none; /* Hide button in mobile nav bar, show in overlay */
-            }
-            .top-nav .nav-links.active .contact-btn {
-                display: block;
-                margin-top: 30px;
-            }
-
-            .hamburger {
-                display: flex; /* Show hamburger */
-            }
-
-            .hero-content-left h1 {
-                font-size: 2.5em;
-            }
-            .hero-content-left p {
-                font-size: 1em;
-            }
-            .hero-content-left .action-btn {
-                padding: 12px 30px;
-                font-size: 1em;
-            }
-            /* Adjust floating circles for smaller screens if they overlap too much */
-            .floating-circle-sm, .floating-circle-lg {
-                display: none; /* Hide for very small screens to avoid clutter */
-            }
-
-
-            section {
-                padding: 30px;
-                margin-bottom: 30px;
-                border-radius: 15px;
-            }
-            section h2 {
-                font-size: 1.8em;
-            }
-            .timeline-item {
-                padding-left: 50px;
-                padding: 15px;
-            }
-            .timeline-item::before {
-                left: 5px;
-                width: 20px;
-                height: 20px;
-                border-width: 3px;
-                top: 20px;
-            }
-            .timeline-item h3 {
-                font-size: 1.2em;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .service-card {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-            .service-card .icon {
-                margin: 0 0 15px 0;
-            }
-            .blog-grid {
-                grid-template-columns: 1fr; /* Stack blog posts on smaller screens */
-            }
-            .blog-post-content .read-more {
-                align-self: center; /* Center button when stacked */
-            }
+            section { padding: 30px; margin-bottom: 30px; border-radius: 15px; }
+            section h2 { font-size: 1.8em; }
+            .service-card { flex-direction: column; text-align: center; align-items: center; gap: 15px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .blog-post-content .read-more { align-self: center; }
+        }
+        
+        @media (max-width: 550px) {
+            /* Make timeline header stack vertically on small screens */
+            .timeline-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .timeline-item .date { padding-top: 0; }
         }
 
         @media (max-width: 480px) {
-            .top-nav {
-                padding: 15px 15px;
-            }
-            .hero-content-left h1 {
-                font-size: 2em;
-            }
-            .hero-section {
-                padding: 40px 15px;
-            }
-            section h2 {
-                font-size: 1.5em;
-            }
-            .footer {
-                border-top-left-radius: 30px;
-                border-top-right-radius: 30px;
-            }
+            .top-nav { padding: 15px; }
+            .hero-content-left h1 { font-size: 2.2em; }
+            .hero-section { padding: 40px 20px; }
+            section h2 { font-size: 1.6em; }
+            .container { padding: 0 15px; }
+            .footer { border-radius: 30px 30px 0 0; }
         }
     </style>
 </head>
@@ -850,10 +677,8 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#interests">Interests</a></li>
-            <li><a href="#blog">Blog</a></li> <!-- Blog Link -->
-            <li><a href="MAILTO:ARPITMISHRA3095@GMAIL.COM" class="contact-btn">Contact Us</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="mailto:arpitmishra3095@gmail.com" class="contact-btn">Contact Me</a></li>
         </ul>
     </nav>
 
@@ -864,25 +689,21 @@
             <a href="mailto:arpitmishra3095@gmail.com" class="action-btn">Hire Me</a>
         </div>
         <div class="hero-image-right">
-            <!-- Placeholder for your image. Replace 'https://via.placeholder.com/...' with your actual professional photo URL -->
-            <img src="https://via.placeholder.com/400x500/FFDAB9/2A2A2A?text=Your+Professional+Photo" alt="Arpit Mishra">
+            <img src="https://via.placeholder.com/400x500/FFDAB9/2A2A2A?text=Your+Photo" alt="Arpit Mishra Professional Photo">
         </div>
-
-        <!-- Decorative Floating Elements (not tied to specific resume content) -->
-        <div class="floating-circle-sm circle1" style="animation-delay: 0.5s;"></div>
-        <div class="floating-circle-lg circle2" style="animation-delay: 0.8s;"></div>
-        <div class="floating-circle-sm circle3" style="animation-delay: 1.1s;"></div>
-        <div class="floating-circle-lg circle4" style="animation-delay: 1.4s;"></div>
+        <div class="floating-circle-sm circle1"></div>
+        <div class="floating-circle-lg circle2"></div>
+        <div class="floating-circle-sm circle3"></div>
+        <div class="floating-circle-lg circle4"></div>
     </header>
 
     <main class="container">
         <section id="about" class="fade-in">
             <h2>About Me</h2>
-            <p style="text-align: center; color: var(--text-dark);">
-                A results-driven and innovative professional with a strong foundation in **Finance** and a passion for **Digital Marketing**.
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+                A results-driven and innovative professional with a strong foundation in <strong>Finance</strong> and a passion for <strong>Digital Marketing</strong>.
                 Currently pursuing an MBA, I combine analytical rigor with creative problem-solving to drive business growth.
                 As the Founder and Creator of <a href="http://ArpitMBA.com" target="_blank" style="color: var(--primary-accent); text-decoration: none; font-weight: 600;">ArpitMBA.com</a>, an online educational platform, I have hands-on experience in content strategy, SEO, and community engagement.
-                I am eager to leverage my diverse skill set to contribute to dynamic roles in finance, marketing, or management.
             </p>
         </section>
 
@@ -912,11 +733,7 @@
             </div>
             <div class="services-text-content">
                 <h2>My Awesome Services</h2>
-                <p>
-                    My expertise spans both the analytical world of finance and the dynamic realm of digital marketing.
-                    I offer a unique blend of skills to help businesses grow, optimize operations, and connect with their audience.
-                    From market research and financial modeling to SEO and content creation, I am committed to delivering tangible results.
-                </p>
+                <p>My expertise spans both the analytical world of finance and the dynamic realm of digital marketing. I offer a unique blend of skills to help businesses grow, optimize operations, and connect with their audience.</p>
                 <a href="mailto:arpitmishra3095@gmail.com" class="action-btn">Connect With Me</a>
             </div>
         </section>
@@ -925,19 +742,28 @@
             <h2>Education</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Master of Business Administration Candidate</h3>
-                    <p class="institution">UTTARANCHAL UNIVERSITY, Dehradun, IN</p>
-                    <p class="details">Major in Finance; Minor in Digital Marketing <span class="date">Pursuing</span></p>
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3>Master of Business Administration Candidate</h3>
+                            <p class="institution">UTTARANCHAL UNIVERSITY, Dehradun, IN</p>
+                        </div>
+                        <span class="date">Pursuing</span>
+                    </div>
+                    <p class="details">Major in Finance; Minor in Digital Marketing</p>
                     <ul>
                         <li>Awards: Certified by NISM (SEBI, ODR, Social Stock Exchange, Time Management, Springboard (AI)).</li>
-                        <li>Leadership: Founder of arpitMBA.com; Student Researcher on Fintech at COER under Dr. Shalini Tyagi.</li>
-                        <li>Projects: Fintech Future 2024 – Researched digital banking & crypto trends.</li>
+                        <li>Leadership: Founder of arpitMBA.com; Student Researcher on Fintech at COER.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <h3>Bachelor of Business Administration, Major in Finance</h3>
-                    <p class="institution">COLLEGE OF ENGINEERING ROORKEE, Roorkee, IN</p>
-                    <p class="details">BBA, COER School of Management; CGPA: 9.02/10; Director's List (Top 10%) <span class="date">Jul 2024</span></p>
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3>Bachelor of Business Administration, Major in Finance</h3>
+                            <p class="institution">COLLEGE OF ENGINEERING ROORKEE, Roorkee, IN</p>
+                        </div>
+                        <span class="date">Jul 2024</span>
+                    </div>
+                    <p class="details">CGPA: 9.02/10; Director's List (Top 10%)</p>
                     <ul>
                         <li>Projects: CRM & Sales Forecasting – HP LIFE training.</li>
                     </ul>
@@ -949,45 +775,43 @@
             <h2>Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Internship in Auditing and Finance</h3>
-                    <p class="institution">LIFEGEM MEDI HEALTHCARE INDIA</p>
-                    <p class="details"><span class="date">June 2025 - Present</span></p>
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3>Internship in Auditing and Finance</h3>
+                            <p class="institution">LIFEGEM MEDI HEALTHCARE INDIA</p>
+                        </div>
+                        <span class="date">June 2025 - Present</span>
+                    </div>
                     <ul>
                         <li>Gained hands-on experience in auditing procedures and financial practices within the healthcare sector.</li>
                         <li>Assisted with financial analysis, data reconciliation, and preparing audit documentation.</li>
-                        <li>Contributed to understanding financial regulations and compliance in a real-world setting.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <h3>Founder & Creator - Definepedia (Formally known as ArpitMBA.com)</h3>
-                    <p class="institution">REMOTE</p>
-                    <p class="details">Online Educational Encyclopedia <span class="date">Sep 2022 - Nov 2024</span></p>
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3>Founder & Creator - Definepedia</h3>
+                            <p class="institution">REMOTE (Formally ArpitMBA.com)</p>
+                        </div>
+                        <span class="date">Sep 2022 - Nov 2024</span>
+                    </div>
                     <ul>
                         <li>Founded and built an online educational encyclopedia specializing in management, finance, and marketing.</li>
                         <li>Implemented SEO strategies, boosting organic traffic by 9.34% within the first 6 months.</li>
-                        <li>Monitored website analytics and user feedback to continuously improve user experience and content relevance.</li>
-                        <li>Researched, curated, and published over 400+ articles and learning modules ensuring accuracy, clarity, and relevance.</li>
-                        <li>Received Google AdSense approval within 4 months of launch, validating platform quality and engagement.</li>
-                        <li>Currently transitioning the platform under a new domain name – <a href="http://arpitMBA.com" target="_blank">arpitMBA.com</a>.</li>
+                        <li>Published over 400+ articles and received Google AdSense approval within 4 months of launch.</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <h3>Student Researcher - COER School of Management</h3>
-                    <p class="institution">Roorkee, IN</p>
-                    <p class="details"><span class="date">Jan 2024 - May 2024</span></p>
+                    <div class="timeline-header">
+                        <div class="timeline-title-group">
+                            <h3>Student Researcher</h3>
+                            <p class="institution">COER School of Management, Roorkee, IN</p>
+                        </div>
+                        <span class="date">Jan 2024 - May 2024</span>
+                    </div>
                     <ul>
                         <li>Conducted in-depth research project titled “Future of Fintech in 2024" under Dr. Shalini Tyagi.</li>
-                        <li>Prepared comprehensive reports and delivered presentations to faculty and student groups.</li>
                         <li>Evaluated the impact of fintech innovations on traditional banking and investment sectors.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Project Internship (Human Resource) - Suvidha Foundation</h3>
-                    <p class="institution">Roorkee, IN</p>
-                    <p class="details"><span class="date">June 2023 - July 2023</span></p>
-                    <ul>
-                        <li>Contributed to Suvidha Foundation (Suvidha Mahila Mandal), a non-profit organization.</li>
-                        <li>Conducted research on human resource management practices to optimize volunteer coordination.</li>
                     </ul>
                 </div>
             </div>
@@ -1000,93 +824,61 @@
                 <div class="skill-item">Microsoft PowerPoint & Word</div>
                 <div class="skill-item">Adobe Animate <span class="level">(Beginner)</span></div>
                 <div class="skill-item">CRM Systems</div>
-                <div class="skill-item">SEO</div>
+                <div class="skill-item">SEO & SEM</div>
                 <div class="skill-item">WordPress</div>
-                <div class="skill-item">Whiteboard Animation Tools <span class="level">(Intermediate)</span></div>
-                <div class="skill-item">Social Media Management Tools</div>
+                <div class="skill-item">Whiteboard Animation</div>
+                <div class="skill-item">Social Media Management</div>
             </div>
         </section>
 
         <section id="certifications" class="fade-in">
-            <h2>Certifications</h2>
+            <h2>Certifications & Interests</h2>
             <ul class="certifications-list">
                 <li>SEBI Investor Certification Examination – NISM <span class="date">(Feb 2024)</span></li>
                 <li>Listing on Social Stock Exchange – NISM <span class="date">(Feb 2024)</span></li>
-                <li>Human Resource Management – Suvidha Foundation <span class="date">(June 2023)</span></li>
-                <li>CRM & Sales Forecasting – HP LIFE <span class="date">(Mar 2024)</span></li>
-                <li>Introduction to Artificial Intelligence – Infosys Springboard <span class="date">(Jan 2024)</span></li>
-                <li>Time Management – Coursera <span class="date">(Dec 2023)</span></li>
                 <li>Marketing in a Digital World – University of Illinois <span class="date">(Jan 2024)</span></li>
+                <li>Introduction to AI – Infosys Springboard <span class="date">(Jan 2024)</span></li>
+                <li>Time Management – Coursera <span class="date">(Dec 2023)</span></li>
+                <li>CRM & Sales Forecasting – HP LIFE <span class="date">(Mar 2024)</span></li>
+                <li>Interests: Writing blogs, researching business models, and digital innovation.</li>
             </ul>
         </section>
 
-        <section id="interests" class="fade-in">
-            <h2>Interests & Others</h2>
-            <ul class="interests-list">
-                <li>Languages: Fluent in Hindi (native), English.</li>
-                <li>Interests: Writing educational blogs, researching business models, exploring digital innovation in education.</li>
-                <li>Blogging & Content Creation: Maintain a professional blog on business ideas and marketing insights through <a href="http://ArpitMBA.com" target="_blank" style="color: var(--primary-accent); text-decoration: none; font-weight: 600;">ArpitMBA.com</a>.</li>
-            </ul>
-        </section>
-
-        <!-- NEW SECTION: Blog Posts (simulating WordPress 'posts') -->
         <section id="blog" class="fade-in">
-            <h2>My Latest Insights (Blog)</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: var(--text-gray);">
-                **Note:** For a truly "automatic" blog where new posts appear without manual HTML editing, you would typically use a server-side CMS like WordPress or a Static Site Generator (e.g., Jekyll, Hugo) that builds your site from content files (like Markdown) when you push to GitHub. This current setup requires you to manually add new `blog-post-card` elements here and create separate HTML files for each full post.
-            </p>
+            <h2>My Latest Insights</h2>
             <div class="blog-grid">
-                <!-- Example Blog Post Card 1 -->
                 <div class="blog-post-card">
-                    <img src="https://via.placeholder.com/400x200/FFB74D/2A2A2A?text=Digital+Marketing" alt="Blog Post Image 1">
+                    <img src="https://via.placeholder.com/400x200/FFB74D/2A2A2A?text=Digital+Marketing" alt="AI in Digital Marketing">
                     <div class="blog-post-content">
-                        <div class="meta">
-                            <span class="category">Digital Marketing</span>
-                            <span class="date">May 15, 2024</span>
-                        </div>
-                        <h3>The Future of AI in Digital Marketing Strategies</h3>
-                        <p>Explore how artificial intelligence is reshaping digital marketing, from personalized ads to predictive analytics. A must-read for marketers looking to stay ahead...</p>
-                        <!-- In a static site, this links to a separate HTML file for the full post. -->
-                        <!-- You would create a new file named 'blog-post-1.html' in the same directory. -->
-                        <a href="blog-post-1.html" class="read-more">Read More</a>
+                        <div class="meta"><span class="category">Digital Marketing</span><span class="date">May 15, 2024</span></div>
+                        <h3>The Future of AI in Marketing</h3>
+                        <p>Explore how artificial intelligence is reshaping digital marketing, from personalized ads to predictive analytics.</p>
+                        <a href="#" class="read-more">Read More</a>
                     </div>
                 </div>
-
-                <!-- Example Blog Post Card 2 -->
                 <div class="blog-post-card">
-                    <img src="https://via.placeholder.com/400x200/64B5F6/2A2A2A?text=Fintech+Insights" alt="Blog Post Image 2">
+                    <img src="https://via.placeholder.com/400x200/64B5F6/2A2A2A?text=Fintech+Insights" alt="Fintech Innovations">
                     <div class="blog-post-content">
-                        <div class="meta">
-                            <span class="category">Finance</span>
-                            <span class="date">April 28, 2024</span>
-                        </div>
-                        <h3>Understanding Fintech: Innovations Transforming Finance</h3>
-                        <p>Dive deep into the world of financial technology. Learn about blockchain, mobile banking, and how fintech is democratizing finance for everyone...</p>
-                        <!-- You would create a new file named 'blog-post-2.html' for this post. -->
-                        <a href="blog-post-2.html" class="read-more">Read More</a>
+                        <div class="meta"><span class="category">Finance</span><span class="date">April 28, 2024</span></div>
+                        <h3>Understanding Fintech Innovations</h3>
+                        <p>Dive deep into the world of financial technology. Learn about blockchain, mobile banking, and how fintech is democratizing finance.</p>
+                        <a href="#" class="read-more">Read More</a>
                     </div>
                 </div>
-
-                <!-- Example Blog Post Card 3 -->
                 <div class="blog-post-card">
-                    <img src="https://via.placeholder.com/400x200/81C784/2A2A2A?text=Career+Path" alt="Blog Post Image 3">
+                    <img src="https://via.placeholder.com/400x200/81C784/2A2A2A?text=Career+Path" alt="MBA for Startups">
                     <div class="blog-post-content">
-                        <div class="meta">
-                            <span class="category">Career Development</span>
-                            <span class="date">April 10, 2024</span>
-                        </div>
+                        <div class="meta"><span class="category">Career Development</span><span class="date">April 10, 2024</span></div>
                         <h3>Leveraging Your MBA for Startup Success</h3>
-                        <p>An MBA provides more than just theory; it offers practical tools for entrepreneurship. Discover how to apply your skills to launch a successful startup and drive innovation...</p>
-                        <!-- You would create a new file named 'blog-post-3.html' for this post. -->
-                        <a href="blog-post-3.html" class="read-more">Read More</a>
+                        <p>An MBA provides more than just theory; it offers practical tools for entrepreneurship and driving innovation.</p>
+                        <a href="#" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 50px; color: var(--text-gray);">
-                For more articles and insights, visit my platform: <a href="http://ArpitMBA.com" target="_blank" style="color: var(--primary-accent); text-decoration: none; font-weight: 600;">ArpitMBA.com</a>
+            <p style="text-align: center; margin-top: 40px; color: var(--text-gray);">
+                For more articles, visit my platform: <a href="http://ArpitMBA.com" target="_blank" style="color: var(--primary-accent); text-decoration: none; font-weight: 600;">ArpitMBA.com</a>
             </p>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -1099,24 +891,24 @@
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
 
+            // Toggle mobile navigation
             hamburger.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
                 hamburger.classList.toggle('open');
                 document.body.classList.toggle('no-scroll');
             });
 
-            // Close mobile nav when a link is clicked
+            // Smooth scrolling and closing mobile nav on link click
             document.querySelectorAll('.nav-links a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    // Only prevent default for internal section links, not external links or mailto
                     const href = this.getAttribute('href');
+                    
                     if (href && href.startsWith('#')) {
                         e.preventDefault();
-                        const targetId = href;
-                        const targetElement = document.querySelector(targetId);
-                        const topOffset = document.querySelector('.top-nav').offsetHeight;
-
+                        const targetElement = document.querySelector(href);
+                        
                         if (targetElement) {
+                            const topOffset = document.querySelector('.top-nav').offsetHeight;
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - topOffset - 20;
 
@@ -1127,6 +919,7 @@
                         }
                     }
 
+                    // Close mobile nav after clicking a link
                     if (navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
                         hamburger.classList.remove('open');
@@ -1135,12 +928,9 @@
                 });
             });
 
+            // Fade-in sections on scroll
             const sections = document.querySelectorAll('section.fade-in');
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
             const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1153,6 +943,7 @@
                 sectionObserver.observe(section);
             });
 
+            // Set current year in footer
             const currentYearSpan = document.getElementById('current-year');
             if (currentYearSpan) {
                 currentYearSpan.textContent = new Date().getFullYear();
