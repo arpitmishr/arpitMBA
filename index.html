@@ -852,8 +852,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#interests">Interests</a></li>
-            <li><a href="#blog">Blog</a></li> <!-- NEW: Blog Link -->
-            <!-- Note on "Pages": In a real CMS, "Pages" are static content (like About, Contact, Privacy Policy). Your existing "About Me" section already serves as a prominent "Page". For this static HTML, adding a full "Pages" section isn't practical without separate files or a backend. The focus is on demonstrating "Posts" (blog entries). -->
+            <li><a href="#blog">Blog</a></li> <!-- Blog Link -->
             <li><a href="MAILTO:ARPITMISHRA3095@GMAIL.COM" class="contact-btn">Contact Us</a></li>
         </ul>
     </nav>
@@ -1033,6 +1032,9 @@
         <!-- NEW SECTION: Blog Posts (simulating WordPress 'posts') -->
         <section id="blog" class="fade-in">
             <h2>My Latest Insights (Blog)</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--text-gray);">
+                **Note:** For a truly "automatic" blog where new posts appear without manual HTML editing, you would typically use a server-side CMS like WordPress or a Static Site Generator (e.g., Jekyll, Hugo) that builds your site from content files (like Markdown) when you push to GitHub. This current setup requires you to manually add new `blog-post-card` elements here and create separate HTML files for each full post.
+            </p>
             <div class="blog-grid">
                 <!-- Example Blog Post Card 1 -->
                 <div class="blog-post-card">
@@ -1044,7 +1046,9 @@
                         </div>
                         <h3>The Future of AI in Digital Marketing Strategies</h3>
                         <p>Explore how artificial intelligence is reshaping digital marketing, from personalized ads to predictive analytics. A must-read for marketers looking to stay ahead...</p>
-                        <a href="javascript:void(0);" class="read-more" onclick="alert('In a real CMS like WordPress, this link would lead to a separate page with the full blog post content, dynamically loaded from a database.')">Read More</a>
+                        <!-- In a static site, this links to a separate HTML file for the full post. -->
+                        <!-- You would create a new file named 'blog-post-1.html' in the same directory. -->
+                        <a href="blog-post-1.html" class="read-more">Read More</a>
                     </div>
                 </div>
 
@@ -1058,7 +1062,8 @@
                         </div>
                         <h3>Understanding Fintech: Innovations Transforming Finance</h3>
                         <p>Dive deep into the world of financial technology. Learn about blockchain, mobile banking, and how fintech is democratizing finance for everyone...</p>
-                        <a href="javascript:void(0);" class="read-more" onclick="alert('In a real CMS like WordPress, this link would lead to a separate page with the full blog post content, dynamically loaded from a database.')">Read More</a>
+                        <!-- You would create a new file named 'blog-post-2.html' for this post. -->
+                        <a href="blog-post-2.html" class="read-more">Read More</a>
                     </div>
                 </div>
 
@@ -1072,7 +1077,8 @@
                         </div>
                         <h3>Leveraging Your MBA for Startup Success</h3>
                         <p>An MBA provides more than just theory; it offers practical tools for entrepreneurship. Discover how to apply your skills to launch a successful startup and drive innovation...</p>
-                        <a href="javascript:void(0);" class="read-more" onclick="alert('In a real CMS like WordPress, this link would lead to a separate page with the full blog post content, dynamically loaded from a database.')">Read More</a>
+                        <!-- You would create a new file named 'blog-post-3.html' for this post. -->
+                        <a href="blog-post-3.html" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
@@ -1102,10 +1108,11 @@
             // Close mobile nav when a link is clicked
             document.querySelectorAll('.nav-links a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    // Only prevent default for internal section links, not the dummy blog links or mailto
-                    if (this.getAttribute('href').startsWith('#')) {
+                    // Only prevent default for internal section links, not external links or mailto
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
                         e.preventDefault();
-                        const targetId = this.getAttribute('href');
+                        const targetId = href;
                         const targetElement = document.querySelector(targetId);
                         const topOffset = document.querySelector('.top-nav').offsetHeight;
 
@@ -1119,7 +1126,6 @@
                             });
                         }
                     }
-
 
                     if (navLinks.classList.contains('active')) {
                         navLinks.classList.remove('active');
