@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpit Mishra - MBA & Digital Marketing Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- JavaScript library to convert Markdown to HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <style>
+        /* General Body Styles */
+        :root {
+            --background-light: #FDFDFD; --text-dark: #2A2A2A; --text-gray: #666666;
+            --primary-accent: #FF8C42; --secondary-accent: #6C5CE7; --header-gradient-start: #FFDAB9;
+            --header-gradient-end: #E0FFFF; --card-bg: #FFFFFF; --border-color: #EFEFEF;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05); --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition-smooth: 0.4s ease-in-out; --button-transition: 0.3s ease;
+        }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; line-height: 1.7; color: var(--text-dark); background-color: var(--background-light); overflow-x: hidden; }
+        body.no-scroll { overflow: hidden; }
+
+        /* Navigation */
+        .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background-color: var(--background-light); box-shadow: var(--shadow-light); position: sticky; top: 0; z-index: 1000; }
+        .top-nav .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5em; color: var(--text-dark); text-decoration: none; }
+        .top-nav .nav-links { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; gap: 30px; }
+        .top-nav .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: color var(--transition-smooth); }
+        .top-nav .nav-links a:hover { color: var(--primary-accent); }
+        .top-nav .contact-btn { background-color: var(--primary-accent); color: white; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background-color var(--button-transition), transform var(--button-transition); }
+        .top-nav .contact-btn:hover { background-color: #e67d30; transform: translateY(-2px); }
+
+        /* Hamburger Menu */
+        .hamburger { display: none; flex-direction: column; cursor: pointer; width: 30px; height: 22px; justify-content: space-between; z-index: 1001; }
+        .hamburger .bar { width: 100%; height: 3px; background-color: var(--text-dark); border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.open .bar:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+        .hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .hamburger.open .bar:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+        /* Hero Section */
+        .hero-section { background: linear-gradient(135deg, var(--header-gradient-start), var(--header-gradient-end)); padding: 80px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; min-height: 70vh; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; margin-bottom: 50px; }
+        .hero-content-left { flex: 1; min-width: 300px; max-width: 550px; text-align: left; }
+        .hero-content-left h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3.5em; line-height: 1.1; margin-bottom: 15px; }
+        .hero-content-left p { font-size: 1.1em; color: var(--text-gray); margin-bottom: 30px; }
+        .hero-content-left .action-btn { background-color: var(--primary-accent); color: white; padding: 15px 35px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-block; transition: var(--button-transition); }
+        .hero-image-right { flex: 1; min-width: 300px; max-width: 450px; display: flex; justify-content: center; align-items: center; }
+        .hero-image-right img { max-width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow-medium); }
+
+        /* Core Sections */
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 25px; }
+        section { background-color: var(--card-bg); padding: 40px; margin-bottom: 40px; border-radius: 20px; box-shadow: var(--shadow-light); opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        section.visible { opacity: 1; transform: translateY(0); }
+        section h2 { font-family: 'Montserrat', sans-serif; color: var(--primary-accent); text-align: center; margin: 0 0 35px 0; font-size: 2.2em; position: relative; }
+        section h2::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--secondary-accent); margin: 15px auto 0; border-radius: 2px; }
+
+        /* Timeline */
+        .timeline { position: relative; padding: 30px 0 0 0; }
+        .timeline::before { content: ''; position: absolute; top: 12px; left: 12px; width: 4px; background-color: var(--border-color); height: calc(100% - 12px); border-radius: 2px; }
+        .timeline-item { position: relative; padding: 20px 20px 20px 50px; margin-bottom: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .timeline-item::before { content: ''; position: absolute; top: 25px; left: 0; width: 24px; height: 24px; border-radius: 50%; background-color: var(--primary-accent); border: 4px solid var(--background-light); box-shadow: 0 0 0 2px var(--primary-accent); z-index: 1; }
+        .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 15px; margin-bottom: 8px; }
+        .timeline-item h3 { font-family: 'Montserrat', sans-serif; margin: 0; font-size: 1.3em; }
+        .timeline-item .institution { font-weight: 500; color: var(--text-gray); margin: 4px 0 0 0; }
+        .timeline-item .date { flex-shrink: 0; font-weight: 600; color: var(--primary-accent); font-size: 0.95em; padding-top: 4px; }
+        .timeline-item ul { list-style: none; padding-left: 0; margin-top: 10px; }
+        .timeline-item ul li { position: relative; padding-left: 20px; margin-bottom: 5px; }
+        .timeline-item ul li::before { content: '\2022'; color: var(--primary-accent); position: absolute; left: 0; font-size: 1.1em; line-height: 1; }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .skill-item { background-color: var(--card-bg); padding: 20px; border-radius: 12px; text-align: center; font-weight: 600; box-shadow: var(--shadow-light); transition: transform var(--transition-smooth); border: 1px solid var(--border-color); }
+        .skill-item:hover { transform: translateY(-8px); background-color: var(--primary-accent); color: white; }
+        
+        /* Blog Section */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 25px; }
+        .blog-post-card { background-color: var(--card-bg); border-radius: 15px; box-shadow: var(--shadow-light); overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--border-color); }
+        .blog-post-card img { width: 100%; height: 200px; object-fit: cover; }
+        .blog-post-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-post-content .meta { font-size: 0.85em; color: var(--text-gray); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .blog-post-content .meta .category { font-weight: 600; color: var(--primary-accent); }
+        .blog-post-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4em; margin: 0 0 15px 0; }
+        .blog-post-content p { font-size: 0.95em; color: var(--text-gray); flex-grow: 1; margin-bottom: 20px;}
+        .blog-post-content .read-more { align-self: flex-start; background-color: var(--primary-accent); color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: var(--button-transition); }
+        .blog-post-content .read-more:hover { background-color: #e67d30; }
+
+        /* Footer */
+        .footer { text-align: center; padding: 40px 20px; background-color: var(--text-dark); color: var(--background-light); font-size: 0.9em; margin-top: 60px; border-top-left-radius: 50px; border-top-right-radius: 50px; }
+        .footer p { margin: 8px 0; font-weight: 300; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-section { flex-direction: column; text-align: center; border-radius: 0 0 30px 30px; }
+            .hero-content-left { order: 2; text-align: center; }
+            .hero-image-right { order: 1; margin-bottom: 40px; }
+        }
+        @media (max-width: 768px) {
+            .top-nav .nav-links { display: none; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); justify-content: center; align-items: center; gap: 0; }
+            .top-nav .nav-links.active { display: flex; }
+            .top-nav .nav-links li { margin: 20px 0; }
+            .top-nav .nav-links a { font-size: 1.5em; font-weight: 600; }
+            .top-nav .contact-btn { display: none; }
+            .top-nav .nav-links .contact-btn { display: inline-block; margin-top: 20px; }
+            .hamburger { display: flex; }
+            section { padding: 30px; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 550px) {
+            .timeline-header { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .timeline-item .date { padding-top: 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="#" class="logo">Arpit Mishra</a>
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="mailto:arpitmishra3095@gmail.com" class="contact-btn">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content-left">
+            <h1>Hy! I Am Arpit Mishra</h1>
+            <p>MBA Candidate & Digital Marketing Professional focusing on innovative solutions and strategic growth.</p>
+            <a href="mailto:arpitmishra3095@gmail.com" class="action-btn">Hire Me</a>
+        </div>
+        <div class="hero-image-right">
+            <img src="https://via.placeholder.com/400x500/FFDAB9/2A2A2A?text=Your+Photo" alt="Arpit Mishra Professional Photo">
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+                A results-driven professional with a strong foundation in Finance and a passion for Digital Marketing. Currently pursuing an MBA, I combine analytical rigor with creative problem-solving to drive business growth.
+            </p>
+        </section>
+
+        <section id="experience" class="fade-in">
+            <h2>Experience & Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Master of Business Administration</h3>
+                        <span class="date">Pursuing</span>
+                    </div>
+                    <p class="institution">UTTARANCHAL UNIVERSITY, Dehradun, IN</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Founder & Creator - Definepedia</h3>
+                        <span class="date">2022 - 2024</span>
+                    </div>
+                    <p class="institution">REMOTE (Formally ArpitMBA.com)</p>
+                    <ul>
+                        <li>Founded and built an online educational encyclopedia specializing in management, finance, and marketing.</li>
+                        <li>Implemented SEO strategies, boosting organic traffic and achieving Google AdSense approval.</li>
+                    </ul>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Bachelor of Business Administration</h3>
+                        <span class="date">Jul 2024</span>
+                    </div>
+                    <p class="institution">COLLEGE OF ENGINEERING ROORKEE, Roorkee, IN</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="fade-in">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Digital Marketing</div>
+                <div class="skill-item">Financial Analysis</div>
+                <div class="skill-item">SEO & SEM</div>
+                <div class="skill-item">Content Creation</div>
+                <div class="skill-item">CRM Systems</div>
+                <div class="skill-item">Project Management</div>
+            </div>
+        </section>
+
+        <section id="blog" class="fade-in">
+            <h2>My Latest Insights</h2>
+            <div class="blog-grid" id="blog-grid-container">
+                <!-- Blog posts will be dynamically inserted here by JavaScript -->
+            </div>
+            <p style="text-align: center; margin-top: 40px; color: var(--text-gray);">
+                For more articles, visit: <a href="http://ArpitMBA.com" target="_blank" style="color: var(--primary-accent); text-decoration: none; font-weight: 600;">ArpitMBA.com</a>
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© <span id="current-year"></span> Arpit Mishra. All rights reserved.</p>
+    </footer>
+
+    <!-- This file must be created in your GitHub repository -->
+    <script src="posts.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Navigation
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('open');
+                document.body.classList.toggle('no-scroll');
+            });
+            document.querySelectorAll('.nav-links a').forEach(anchor => {
+                anchor.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('open');
+                        document.body.classList.remove('no-scroll');
+                    }
+                });
+            });
+
+            // Fade-in Sections on Scroll
+            const sections = document.querySelectorAll('section.fade-in');
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { sectionObserver.observe(section); });
+
+            // Footer Year
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); }
+
+            // --- SCRIPT TO LOAD BLOG POSTS FROM DECAP CMS ---
+            const blogGrid = document.getElementById('blog-grid-container');
+            
+            async function loadPosts() {
+                if (!blogGrid) return;
+                
+                // Check if the posts.js file and the postFiles array exist
+                if (typeof postFiles === 'undefined' || postFiles.length === 0) {
+                    blogGrid.innerHTML = '<p style="text-align: center; color: var(--text-gray);">No posts yet. Check back soon!</p>';
+                    return;
+                }
+
+                blogGrid.innerHTML = ''; // Clear the grid before loading
+
+                for (const file of postFiles.reverse()) { // .reverse() to show newest posts first
+                    try {
+                        const response = await fetch(`_posts/${file}`);
+                        if (!response.ok) {
+                            console.warn(`Could not find post file: ${file}`);
+                            continue;
+                        }
+
+                        const markdown = await response.text();
+                        
+                        const meta = {};
+                        const content = markdown.replace(/---([\s\S]*?)---/, (match, frontMatter) => {
+                            frontMatter.trim().split('\n').forEach(line => {
+                                const [key, ...value] = line.split(':');
+                                meta[key.trim()] = value.join(':').trim().replace(/^"|"$/g, '');
+                            });
+                            return '';
+                        });
+                        
+                        const bodyHtml = marked.parse(content);
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = bodyHtml;
+                        const firstParagraph = tempDiv.querySelector('p')?.textContent || '';
+
+                        const postDate = new Date(meta.date);
+                        const formattedDate = isNaN(postDate) ? 'Date not set' : postDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+                        const postCard = `
+                            <div class="blog-post-card">
+                                <img src="${meta.thumbnail || 'https://via.placeholder.com/400x200/FFB74D/2A2A2A?text=Blog'}" alt="${meta.title || 'Blog Post'}">
+                                <div class="blog-post-content">
+                                    <div class="meta">
+                                        <span class="category">Blog</span>
+                                        <span class="date">${formattedDate}</span>
+                                    </div>
+                                    <h3>${meta.title || 'Untitled Post'}</h3>
+                                    <p>${firstParagraph.substring(0, 120)}...</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </div>
+                        `;
+                        
+                        blogGrid.insertAdjacentHTML('beforeend', postCard);
+                    } catch (error) {
+                        console.error('Error loading or parsing post:', file, error);
+                    }
+                }
+            }
+            
+            loadPosts();
+        });
+    </script>
+</body>
+</html>
