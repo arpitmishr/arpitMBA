@@ -1292,19 +1292,19 @@
 
         <ul class="navbar-list">
           <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link="about">About</button>
           </li>
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link="resume">Resume</button>
           </li>
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Skills & Certs</button>
+            <button class="navbar-link" data-nav-link="skills & certs">Skills & Certs</button>
           </li>
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
+            <button class="navbar-link" data-nav-link="blog">Blog</button>
           </li>
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link="contact">Contact</button>
           </li>
         </ul>
 
@@ -1762,19 +1762,28 @@
     const navigationLinks = document.querySelectorAll("[data-nav-link]");
     const pages = document.querySelectorAll("[data-page]");
 
-    // add event to all nav link
+    // add event to all nav links
     for (let i = 0; i < navigationLinks.length; i++) {
-      navigationLinks[i].addEventListener("click", function() {
-        for (let j = 0; j < pages.length; j++) {
-          if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
-            pages[j].classList.add("active");
-            navigationLinks[j].classList.add("active");
-            window.scrollTo(0, 0);
-          } else {
-            pages[j].classList.remove("active");
-            navigationLinks[j].classList.remove("active");
-          }
+      navigationLinks[i].addEventListener("click", function () {
+
+        // First, remove active class from all links and pages
+        for (let j = 0; j < navigationLinks.length; j++) {
+          navigationLinks[j].classList.remove("active");
         }
+        for (let j = 0; j < pages.length; j++) {
+          pages[j].classList.remove("active");
+        }
+
+        // Add active class to the clicked link
+        this.classList.add("active");
+
+        // Find the corresponding page and add active class
+        const targetPage = document.querySelector(`[data-page="${this.dataset.navLink}"]`);
+        if (targetPage) {
+          targetPage.classList.add("active");
+        }
+        
+        window.scrollTo(0, 0);
       });
     }
   </script>
