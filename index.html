@@ -3,39 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpit Mishra | Finance & Digital Marketing</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Arpit Mishra | Finance & Digital Marketing Portfolio</title>
+
+    <style>
+        /* --- Google Fonts Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+        /* --- Custom Properties (Color Palette & Variables) --- */
+        :root {
+            --primary-color: #1a237e; /* Deep Indigo Blue */
+            --secondary-color: #c5a054; /* Golden Amber for accents */
+            --background-color: #f5f5f5; /* Light Grey Background */
+            --surface-color: #ffffff; /* White for cards/sections */
+            --text-color: #333333; /* Dark Grey for text */
+            --light-text-color: #f0f0f0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+        }
+
+        /* --- Smooth Scrolling --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- General Body Styles & Typography --- */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Header and Navigation --- */
+        header {
+            background: rgba(26, 35, 126, 0.85); /* Semi-transparent primary color */
+            backdrop-filter: blur(10px);
+            color: var(--light-text-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        nav .logo h1 {
+            margin: 0;
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: var(--light-text-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            position: relative;
+            transition: color var(--transition-speed) ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background-color: var(--secondary-color);
+            transition: all var(--transition-speed) ease-in-out;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* --- General Container & Section Styles --- */
+        main {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 3rem 0;
+        }
+
+        section {
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+            background: var(--surface-color);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Hero Section (Home Page) --- */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            min-height: 90vh;
+            padding: 2rem; /* Adjusted padding for section */
+        }
+        
+        .hero-text {
+            max-width: 55%;
+        }
+
+        .hero-text h2 {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .hero-text h2::after {
+            margin: 10px 0 0; /* Align underline to left */
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 320px;
+            border-radius: 50%;
+            border: 8px solid var(--secondary-color);
+            box-shadow: 0 10px 30px var(--shadow-color);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary-color), #e6bf6a);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(197, 160, 84, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(197, 160, 84, 0.6);
+        }
+
+        /* --- Experience Timeline --- */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -52px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--surface-color);
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--secondary-color);
+        }
+
+        .timeline-item h3 {
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item ul {
+            list-style-type: '✓  ';
+            padding-left: 20px;
+        }
+
+        /* --- Projects Grid --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--secondary-color);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- Skills Grid --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-item {
+            background: linear-gradient(45deg, var(--primary-color), #283593);
+            color: var(--light-text-color);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(26, 35, 126, 0.4);
+        }
+
+        /* --- Certifications List --- */
+        #skills .certifications-section {
+            margin-top: 3rem;
+        }
+
+        .cert-list {
+            list-style-type: '🎓 ';
+            padding-left: 20px;
+            font-size: 1.1rem;
+        }
+
+        .cert-list li {
+            margin-bottom: 10px;
+        }
+
+        /* --- Contact Info --- */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .contact-info a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width var(--transition-speed) ease;
+        }
+
+        .contact-info a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--primary-color);
+            color: var(--light-text-color);
+            margin-top: 2rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .hero-image img {
+                max-width: 280px;
+                margin-bottom: 2rem;
+            }
+            .hero-text h2 {
+                text-align: center;
+            }
+            .hero-text h2::after {
+                margin: 10px auto 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Can be replaced with a hamburger menu using JavaScript */
+            }
+            main {
+                width: 90%;
+            }
+            section {
+                padding: 2rem;
+            }
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero-image img {
+                max-width: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <nav>
             <div class="logo">
                 <h1>Arpit Mishra</h1>
             </div>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="hero">
-        <div class="hero-text">
-            <h2>Bridging Finance and Digital Marketing for Strategic Growth.</h2>
-            <p>A dynamic and results-oriented professional pursuing an MBA with a specialization in Finance and a minor in Digital Marketing. Passionate about leveraging digital strategies to drive financial innovation and business success.</p>
-            <a href="about.html" class="btn">Learn More About Me</a>
-        </div>
-        <div class="hero-image">
-            <img src="assets/profile-picture.jpg" alt="Arpit Mishra">
-        </div>
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home">
+            <div class="hero-text">
+                <h2>Bridging Finance and Digital Marketing for Strategic Growth.</h2>
+                <p>A dynamic and results-oriented professional pursuing an MBA with a specialization in Finance and a minor in Digital Marketing. Passionate about leveraging digital strategies to drive financial innovation and business success.</p>
+                <a href="#about" class="btn">Learn More About Me</a>
+            </div>
+            <div class="hero-image">
+                <img src="assets/profile-picture.jpg" alt="Arpit Mishra">
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a dedicated and forward-thinking professional with a strong foundation in finance, complemented by a keen interest and growing expertise in digital marketing. My academic journey began with a Bachelor of Business Administration from the College of Engineering Roorkee, where I graduated with a 9.02/10 CGPA and was recognized on the Director's List for being in the top 10% of my class. I am currently enhancing my knowledge and skills by pursuing a Master of Business Administration at Uttaranchal University.</p>
+            <p>My passion lies in the intersection of finance and technology, particularly in how digital innovations can reshape the financial landscape. I am an avid learner and a proactive individual, always seeking opportunities to apply my knowledge to real-world challenges. My interests extend to writing educational blogs and researching innovative business models, which allows me to stay at the forefront of industry trends.</p>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Auditor/Finance Intern</h3>
+                    <p><strong>Life Gem Medi Healthcare (India)</strong> | On-Site | Jun 2025 - Present</p>
+                    <ul>
+                        <li>Learned and applied file auditing processes and compliance verification procedures.</li>
+                        <li>Prepared detailed reports and managed email communications for effective team coordination.</li>
+                        <li>Developed skills in ledger matching and reconciliation of financial records.</li>
+                        <li>Audited ledger entries, HSN codes, and GST numbers to ensure regulatory compliance.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Founder & Creator</h3>
+                    <p><strong>Definepedia (formerly arpitMBA.com)</strong> | Remote | Sep 2022 - Nov 2024</p>
+                    <ul>
+                        <li>Founded and built an online educational encyclopedia specializing in management, finance, and marketing.</li>
+                        <li>Implemented SEO strategies that boosted organic traffic by 9.34% within the first 6 months.</li>
+                        <li>Received Google AdSense approval within 4 months of launch, validating platform quality.</li>
+                        <li>Researched, curated, and published over 400+ articles and learning modules.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Student Researcher</h3>
+                    <p><strong>COER School of Management</strong> | Roorkee, IN | Jan 2024 - May 2024</p>
+                    <ul>
+                        <li>Conducted in-depth research on the "Future of Fintech in 2024" under the guidance of Dr. Shalini Tyagi.</li>
+                        <li>Explored trends such as digital banking, blockchain, and cryptocurrency adoption in India.</li>
+                        <li>Prepared comprehensive reports and delivered presentations to faculty and student groups.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Project Internship (Human Resource)</h3>
+                    <p><strong>Suvidha Foundation</strong> | Roorkee, IN | June 2023 - July 2023</p>
+                    <ul>
+                        <li>Contributed to a non-profit dedicated to education and community empowerment.</li>
+                        <li>Conducted research on human resource management practices to optimize volunteer coordination.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <h2>Key Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Fintech Future 2024</h3>
+                    <p>An in-depth research project analyzing the evolving landscape of financial technology in India. This study explored emerging trends in digital banking, the adoption of cryptocurrency, and the impact of blockchain technology on traditional financial systems.</p>
+                </div>
+                <div class="project-card">
+                    <h3>CRM & Sales Forecasting</h3>
+                    <p>A hands-on project completed as part of HP LIFE training. This initiative focused on utilizing Customer Relationship Management (CRM) systems to analyze sales data and develop accurate sales forecasts, providing valuable insights into market trends and customer behavior.</p>
+                </div>
+                <div class="project-card">
+                    <h3>arpitMBA.com</h3>
+                    <p>My personal blog and content creation platform dedicated to sharing insights on business ideas, marketing strategies, and financial concepts. This ongoing project serves as a medium for me to engage with a wider audience and contribute to the discourse on modern business practices.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SKILLS & CERTIFICATIONS SECTION -->
+        <section id="skills">
+            <h2>Skills & Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Microsoft Excel (Intermediate)</div>
+                <div class="skill-item">Microsoft PowerPoint & Word</div>
+                <div class="skill-item">Adobe Animate (Beginner)</div>
+                <div class="skill-item">CRM Systems</div>
+                <div class="skill-item">SEO</div>
+                <div class="skill-item">WordPress</div>
+                <div class="skill-item">Whiteboard Animation Tools</div>
+                <div class="skill-item">Social Media Management</div>
+            </div>
+            
+            <div class="certifications-section">
+                <ul class="cert-list">
+                    <li>SEBI Investor Certification Examination - NISM (Feb 2024)</li>
+                    <li>Listing on Social Stock Exchange - NISM (Feb 2024)</li>
+                    <li>Human Resource Management - Suvidha Foundation (June 2023)</li>
+                    <li>CRM & Sales Forecasting - HP LIFE (Mar 2024)</li>
+                    <li>Introduction to Artificial Intelligence - Infosys Springboard (Jan 2024)</li>
+                    <li>Time Management - Coursera (Dec 2023)</li>
+                    <li>Marketing in a Digital World - University of Illinois (Jan 2024)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p>I am always open to discussing new opportunities, collaborations, or just a chat about the future of finance and digital marketing. Feel free to reach out to me through any of the following channels.</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:arpitmishra3095@gmail.com">arpitmishra3095@gmail.com</a></p>
+                <p><strong>Phone:</strong> +91 7017251402</p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/arpit-mishra19" target="_blank">linkedin.com/in/arpit-mishra19</a></p>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Arpit Mishra. All Rights Reserved.</p>
     </footer>
+
 </body>
 </html>
