@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpit Mishra | Interactive Portfolio</title>
+    <title>Arpit Mishra | Finance & Digital Marketing Portfolio</title>
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,33 +14,122 @@
 
         /* --- THEME DEFINITIONS (CSS VARIABLES) --- */
         :root {
+            /* --- Base & Transition Variables --- */
             --transition-speed: 0.4s;
             --shadow-light: rgba(0, 0, 0, 0.1);
             --shadow-dark: rgba(0, 0, 0, 0.2);
 
-            /* White Theme (Default) */
-            --primary-color: #1a237e; --secondary-color: #c5a054; --background-color: #f5f5f5; --surface-color: #ffffff; --text-color: #333333; --light-text-color: #f0f0f0; --header-bg: rgba(255, 255, 255, 0.85); --header-text: #1a237e; --header-logo: var(--secondary-color);
+            /* --- White Theme (Default) --- */
+            --primary-color: #1a237e;      /* Deep Indigo Blue */
+            --secondary-color: #c5a054;    /* Golden Amber */
+            --background-color: #f5f5f5;   /* Light Grey */
+            --surface-color: #ffffff;      /* White */
+            --text-color: #333333;         /* Dark Grey */
+            --light-text-color: #f0f0f0;   /* Light Text on Dark BG */
+            --header-bg: rgba(255, 255, 255, 0.85);
+            --header-text: #1a237e;
+            --header-logo: var(--secondary-color);
         }
-        [data-theme='blue'] { --primary-color: #0d47a1; --secondary-color: #42a5f5; --background-color: #e3f2fd; --surface-color: #ffffff; --text-color: #212121; --light-text-color: #ffffff; --header-bg: rgba(255, 255, 255, 0.85); --header-text: #0d47a1; --header-logo: var(--secondary-color); }
-        [data-theme='green'] { --primary-color: #1b5e20; --secondary-color: #66bb6a; --background-color: #e8f5e9; --surface-color: #ffffff; --text-color: #1b5e20; --light-text-color: #ffffff; --header-bg: rgba(255, 255, 255, 0.85); --header-text: #1b5e20; --header-logo: var(--secondary-color); }
-        [data-theme='dark'] { --primary-color: #66bb6a; --secondary-color: #c5a054; --background-color: #121212; --surface-color: #1e1e1e; --text-color: #e0e0e0; --light-text-color: #121212; --header-bg: rgba(30, 30, 30, 0.85); --header-text: #f5f5f5; --header-logo: var(--primary-color); }
+
+        [data-theme='blue'] {
+            --primary-color: #0d47a1;      /* Deep Blue */
+            --secondary-color: #42a5f5;    /* Lighter Blue */
+            --background-color: #e3f2fd;   /* Very Light Blue */
+            --surface-color: #ffffff;
+            --text-color: #212121;
+            --light-text-color: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.85);
+            --header-text: #0d47a1;
+            --header-logo: var(--secondary-color);
+        }
+
+        [data-theme='green'] {
+            --primary-color: #1b5e20;      /* Dark Green */
+            --secondary-color: #66bb6a;    /* Lighter Green */
+            --background-color: #e8f5e9;   /* Very Light Green */
+            --surface-color: #ffffff;
+            --text-color: #1b5e20;
+            --light-text-color: #ffffff;
+            --header-bg: rgba(255, 255, 255, 0.85);
+            --header-text: #1b5e20;
+            --header-logo: var(--secondary-color);
+        }
+
+        [data-theme='dark'] {
+            --primary-color: #66bb6a;      /* Light Green (as primary on dark) */
+            --secondary-color: #c5a054;    /* Golden Amber */
+            --background-color: #121212;   /* True Black */
+            --surface-color: #1e1e1e;      /* Dark Grey */
+            --text-color: #e0e0e0;         /* Light Grey Text */
+            --light-text-color: #121212;   /* Dark Text for buttons */
+            --header-bg: rgba(30, 30, 30, 0.85);
+            --header-text: #f5f5f5;
+            --header-logo: var(--primary-color);
+        }
         
-        /* --- General Body & SCROLL-TRIGGERED ANIMATIONS --- */
+        /* --- General Body Styles & Typography --- */
         html { scroll-behavior: smooth; }
-        body { font-family: 'Roboto', sans-serif; line-height: 1.8; margin: 0; padding: 0; background-color: var(--background-color); color: var(--text-color); overflow-x: hidden; transition: background-color var(--transition-speed), color var(--transition-speed); }
-        .hidden { opacity: 0; filter: blur(5px); transform: translateX(-50%); transition: all 1s; }
-        .show { opacity: 1; filter: blur(0); transform: translateX(0); }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }
-        .shake { animation: shake 0.5s ease-in-out; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        /* --- NEW: Scroll Animation Styles --- */
+        .animated-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animated-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* --- Theme Switcher --- */
-        .theme-switcher { position: fixed; top: 100px; right: 0; background: var(--surface-color); padding: 10px; border-radius: 10px 0 0 10px; box-shadow: -2px 2px 10px var(--shadow-light); z-index: 2000; transition: all var(--transition-speed); }
-        .theme-button { width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--text-color); cursor: pointer; display: block; margin: 8px 0; transition: transform var(--transition-speed); }
+        .theme-switcher {
+            position: fixed;
+            top: 100px;
+            right: 0;
+            background: var(--surface-color);
+            padding: 10px;
+            border-radius: 10px 0 0 10px;
+            box-shadow: -2px 2px 10px var(--shadow-light);
+            z-index: 2000;
+            transition: all var(--transition-speed);
+        }
+        .theme-button {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--text-color);
+            cursor: pointer;
+            display: block;
+            margin: 8px 0;
+            transition: transform var(--transition-speed);
+        }
         .theme-button:hover { transform: scale(1.2); }
-        #btn-white { background: #f5f5f5; } #btn-blue { background: #0d47a1; } #btn-green { background: #1b5e20; } #btn-dark { background: #121212; }
+        #btn-white { background: #f5f5f5; }
+        #btn-blue { background: #0d47a1; }
+        #btn-green { background: #1b5e20; }
+        #btn-dark { background: #121212; }
 
-        /* --- Header & Nav --- */
-        header { background: var(--header-bg); backdrop-filter: blur(10px); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px var(--shadow-light); transition: background-color var(--transition-speed); }
+        /* --- Header and Navigation --- */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            transition: background-color var(--transition-speed);
+        }
         nav { display: flex; justify-content: space-between; align-items: center; width: 90%; margin: auto; }
         nav .logo h1 { margin: 0; font-family: 'Lora', serif; font-size: 1.8rem; color: var(--header-logo); transition: color var(--transition-speed); }
         nav ul { list-style: none; display: flex; padding: 0; }
@@ -50,63 +139,96 @@
         nav a:hover, nav a.active { color: var(--secondary-color); }
         nav a:hover::after, nav a.active::after { width: 100%; left: 0; }
         
-        /* --- Main Content & Sections --- */
+        /* --- General Container & Section Styles --- */
         main { width: 85%; max-width: 1200px; margin: auto; overflow: hidden; padding: 3rem 0; }
         section { padding: 3rem; margin-bottom: 2.5rem; background: var(--surface-color); border-radius: 12px; box-shadow: 0 8px 25px var(--shadow-light); transition: background-color var(--transition-speed); }
         h2 { font-family: 'Lora', serif; font-size: 2.5rem; color: var(--primary-color); text-align: center; margin-bottom: 2.5rem; position: relative; transition: color var(--transition-speed); }
         h2::after { content: ''; display: block; width: 80px; height: 4px; background: var(--secondary-color); margin: 10px auto 0; border-radius: 2px; transition: background-color var(--transition-speed); }
-        .btn { display: inline-block; background: var(--secondary-color); color: var(--light-text-color); padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 50px; transition: all var(--transition-speed) ease; box-shadow: 0 4px 15px var(--shadow-light); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow-dark); background: var(--primary-color); }
 
         /* --- Home/Hero Section --- */
         #home { display: flex; align-items: center; justify-content: space-around; min-height: 90vh; }
         .hero-text { max-width: 55%; }
         .hero-text h2 { font-size: 3.5rem; line-height: 1.2; text-align: left; }
+        .hero-text h2::after { margin: 10px 0 0; }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 30px; }
         .hero-image img { max-width: 320px; border-radius: 50%; border: 8px solid var(--secondary-color); box-shadow: 0 10px 30px var(--shadow-dark); transition: all var(--transition-speed); }
-        .hero-image:hover img { transform: scale(1.05) rotate(2deg); border-color: var(--primary-color); }
+        .hero-image:hover img { transform: scale(1.05); border-color: var(--primary-color); }
+        .btn { display: inline-block; background: var(--secondary-color); color: var(--light-text-color); padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 50px; transition: all var(--transition-speed) ease; box-shadow: 0 4px 15px var(--shadow-light); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow-dark); background: var(--primary-color); }
 
-        /* --- Achievements & Certifications - HORIZONTAL SCROLL --- */
-        .scroll-container { display: flex; overflow-x: auto; padding: 20px; scrollbar-width: none; /* Firefox */ -ms-overflow-style: none; /* IE 10+ */ }
-        .scroll-container::-webkit-scrollbar { display: none; /* Safari and Chrome */ }
-        .achievement-card { flex: 0 0 320px; margin-right: 20px; background: var(--background-color); border-radius: 10px; padding: 25px; box-shadow: 0 5px 15px var(--shadow-light); transition: all var(--transition-speed); border-left: 5px solid var(--secondary-color); }
-        .achievement-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px var(--shadow-dark); }
-        .achievement-card h3 { font-family: 'Lora', serif; color: var(--primary-color); margin-top: 0; }
-        .achievement-card .icon { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 15px; }
+        /* --- Features Section --- */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-card { text-align: center; padding: 30px; border-radius: 10px; transition: all var(--transition-speed); }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px var(--shadow-light); }
+        .feature-card .icon { font-size: 3rem; color: var(--secondary-color); margin-bottom: 15px; transition: color var(--transition-speed); }
+        .feature-card h3 { color: var(--primary-color); margin-bottom: 10px; transition: color var(--transition-speed); }
+
+        /* --- Experience Timeline --- */
+        .timeline { position: relative; padding-left: 40px; border-left: 4px solid var(--primary-color); transition: border-color var(--transition-speed); }
+        .timeline-item { margin-bottom: 2.5rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -52px; top: 5px; width: 20px; height: 20px; background: var(--surface-color); border: 4px solid var(--primary-color); border-radius: 50%; transition: all var(--transition-speed) ease; }
+        .timeline-item:hover::before { background: var(--secondary-color); transform: scale(1.2); }
+        .timeline-item h3 { font-family: 'Lora', serif; color: var(--primary-color); }
+        .timeline-item p { font-style: italic; color: #555; }
+        [data-theme='dark'] .timeline-item p { color: #aaa; }
+        .timeline-item ul { list-style-type: '✓  '; padding-left: 20px; }
         
-        /* --- SKILLS SECTION - NEW UI --- */
-        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .skill-category h3 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; }
-        .skill-bar { margin: 15px 0; }
-        .skill-bar p { margin: 0 0 5px 0; display: flex; justify-content: space-between; }
-        .progress { background: var(--background-color); border-radius: 10px; padding: 4px; }
-        .progress-bar { height: 12px; border-radius: 10px; background: linear-gradient(90deg, var(--secondary-color), var(--primary-color)); width: 0; transition: width 2s ease-out; }
-        
-        /* --- Tricky Contact Form --- */
-        #contact-gate { text-align: center; }
-        #math-problem-container { padding: 2rem; border: 2px dashed var(--secondary-color); border-radius: 10px; }
-        #math-question { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); margin-bottom: 1rem; }
-        #math-answer { padding: 10px; width: 100px; text-align: center; border: 2px solid #ccc; border-radius: 5px; margin-right: 10px; }
-        #hidden-contact-details { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 1s, max-height 1s; }
-        #hidden-contact-details.revealed { opacity: 1; max-height: 500px; }
+        /* --- Projects Section --- */
+        .project-card { display: flex; flex-direction: column; background: transparent; padding: 0; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 5px 15px var(--shadow-light); transition: all var(--transition-speed) ease; overflow: hidden; }
+        [data-theme='dark'] .project-card { border: 1px solid #444; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px var(--shadow-dark); }
+        .project-image img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        .project-content { padding: 25px; }
+
+        /* --- Achievements & Certifications --- */
+        .achievements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .achievement-card, .certification-list { padding: 20px; }
+        .achievement-card h3 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 15px; }
+        .cert-list { list-style-type: none; padding-left: 0; }
+        .cert-list li { padding: 10px 0; border-bottom: 1px dashed #ccc; transition: all var(--transition-speed); }
+        [data-theme='dark'] .cert-list li { border-bottom-color: #444; }
+        .cert-list li:hover { background: var(--background-color); padding-left: 10px; }
+        .cert-list li::before { content: '🎓 '; color: var(--secondary-color); }
+
+        /* --- Skills Section --- */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .skill-item { background: var(--primary-color); color: var(--light-text-color); padding: 12px 20px; border-radius: 50px; font-size: 1rem; font-weight: 500; transition: all var(--transition-speed) ease; }
+        .skill-item:hover { transform: scale(1.1); box-shadow: 0 5px 15px var(--shadow-dark); background: var(--secondary-color); color: var(--primary-color);}
+
+        /* --- Contact & Footer --- */
+        #contact { text-align: center; }
         .contact-info p { font-size: 1.2rem; }
-        .contact-info a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
-
-        /* --- Footer --- */
+        .contact-info a { color: var(--primary-color); text-decoration: none; font-weight: bold; position: relative; }
+        .contact-info a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: var(--secondary-color); transition: width var(--transition-speed) ease; }
+        .contact-info a:hover::after { width: 100%; }
         footer { text-align: center; padding: 2rem 0; background: var(--primary-color); color: var(--light-text-color); margin-top: 2rem; transition: all var(--transition-speed); }
 
         /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            main { width: 90%; } #home { flex-direction: column-reverse; text-align: center; } .hero-text { max-width: 100%; } .hero-image img { max-width: 280px; margin-bottom: 2rem; }
+            main { width: 90%; }
+            #home { flex-direction: column-reverse; text-align: center; }
+            .hero-text { max-width: 100%; }
+            .hero-image img { max-width: 280px; margin-bottom: 2rem; }
+            .hero-text h2 { text-align: center; }
+            .hero-text h2::after { margin: 10px auto 0; }
+            .achievements-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
-            nav ul { display: none; } section { padding: 2rem; } h2 { font-size: 2rem; } .hero-text h2 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplified for example */
+            section { padding: 2rem; }
+            h2 { font-size: 2rem; }
+            .hero-text h2 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- THEME SWITCHER -->
     <div class="theme-switcher">
-        <div class="theme-button" id="btn-white"></div><div class="theme-button" id="btn-blue"></div><div class="theme-button" id="btn-green"></div><div class="theme-button" id="btn-dark"></div>
+        <div class="theme-button" id="btn-white"></div>
+        <div class="theme-button" id="btn-blue"></div>
+        <div class="theme-button" id="btn-green"></div>
+        <div class="theme-button" id="btn-dark"></div>
     </div>
 
     <header>
@@ -114,6 +236,7 @@
             <div class="logo"><h1>Arpit Mishra</h1></div>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#achievements">Achievements</a></li>
@@ -125,95 +248,137 @@
 
     <main>
         <!-- HOME SECTION -->
-        <section id="home" class="hidden">
+        <section id="home" class="animated-section">
             <div class="hero-text">
                 <h2>Bridging Finance and Digital Marketing for Strategic Growth.</h2>
-                <p>A dynamic MBA candidate specializing in Finance and Digital Marketing, with a passion for leveraging digital strategies to drive financial innovation and business success.</p>
+                <p>A dynamic and results-oriented professional pursuing an MBA with a specialization in Finance and a minor in Digital Marketing. Passionate about leveraging digital strategies to drive financial innovation and business success.</p>
                 <a href="#contact" class="btn">Get in Touch</a>
             </div>
             <div class="hero-image">
                 <img src="assets/profile-picture.jpg" alt="Arpit Mishra">
             </div>
         </section>
+        
+        <!-- FEATURES SECTION -->
+        <section id="features" class="animated-section">
+            <h2>Core Competencies</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Financial Analysis</h3>
+                    <p>In-depth analysis of financial records, trend identification, and compliance verification.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Digital Marketing</h3>
+                    <p>Executing SEO strategies, content creation, and social media management to boost online presence.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Entrepreneurial Spirit</h3>
+                    <p>Proven ability to build digital platforms from the ground up, achieving monetization and user growth.</p>
+                </div>
+            </div>
+        </section>
 
         <!-- EXPERIENCE SECTION -->
-        <section id="experience" class="hidden">
-            <!-- Content remains the same -->
+        <section id="experience" class="animated-section">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Auditor/Finance Intern</h3>
+                    <p><strong>Life Gem Medi Healthcare (India)</strong> | Jun 2025 - Present</p>
+                    <ul>
+                        <li>Learned and applied file auditing processes and compliance verification procedures.</li>
+                        <li>Developed skills in ledger matching and reconciliation of financial records.</li>
+                        <li>Audited ledger entries, HSN codes, and GST numbers to ensure regulatory compliance.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Founder & Creator</h3>
+                    <p><strong>Definepedia (formerly arpitMBA.com)</strong> | Sep 2022 - Nov 2024</p>
+                    <ul>
+                        <li>Founded and built an online educational encyclopedia specializing in management and finance.</li>
+                        <li>Implemented SEO strategies boosting organic traffic by 9.34% within the first 6 months.</li>
+                        <li>Received Google AdSense approval within 4 months of launch, validating platform quality.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        
+
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="hidden">
-            <!-- Content remains the same -->
+        <section id="projects" class="animated-section">
+            <h2>Projects</h2>
+            <div class="features-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/tenant-dashboard.jpg" alt="Tenant Record System Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Tenant Record System</h3>
+                        <p><strong>(Jun 2025 - Present)</strong> - Built a tenant management system with record tracking and database integration, simplifying property management tasks.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/fashion-dashboard.jpg" alt="Tinny Fashion Inventory Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Tinny Fashion Inventory</h3>
+                        <p><strong>(Jun 2025 - Present)</strong> - Developed a web-based inventory tracking system with sales profit analysis and cost optimization features.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ACHIEVEMENTS & CERTIFICATIONS SECTION -->
-        <section id="achievements" class="hidden">
+        <section id="achievements" class="animated-section">
             <h2>Achievements & Certifications</h2>
-            <div class="scroll-container">
+            <div class="achievements-grid">
                 <div class="achievement-card">
-                    <div class="icon"><i class="fas fa-trophy"></i></div>
-                    <h3>Director's List</h3>
-                    <p>Recognized in the Top 10% at COER School of Management with a CGPA of 9.02/10.</p>
+                    <h3>Key Achievements</h3>
+                    <ul>
+                        <li><strong>Director's List (Top 10%)</strong> at COER School of Management (CGPA: 9.02/10).</li>
+                        <li><strong>Founded Definepedia:</strong> Successfully launched and monetized an educational platform, attracting significant organic traffic.</li>
+                        <li><strong>Published Researcher:</strong> Conducted and presented in-depth research on the "Future of Fintech in 2024".</li>
+                    </ul>
                 </div>
-                <div class="achievement-card">
-                    <div class="icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Founder of Definepedia</h3>
-                    <p>Successfully launched and monetized an educational platform, boosting organic traffic by 9.34% in 6 months.</p>
-                </div>
-                <div class="achievement-card">
-                    <div class="icon"><i class="fas fa-book-open"></i></div>
-                    <h3>Fintech Researcher</h3>
-                    <p>Conducted and presented in-depth research on the "Future of Fintech in 2024".</p>
-                </div>
-                <div class="achievement-card">
-                    <div class="icon"><i class="fas fa-certificate"></i></div>
-                    <h3>SEBI Investor Certified</h3>
-                    <p>Certified by the National Institute of Securities Markets (NISM) for investor knowledge.</p>
-                </div>
-                <div class="achievement-card">
-                    <div class="icon"><i class="fas fa-poll"></i></div>
-                    <h3>Digital Marketing</h3>
-                    <p>Certified by the University of Illinois in "Marketing in a Digital World".</p>
+                <div class="certification-list">
+                    <h3>Certifications</h3>
+                    <ul class="cert-list">
+                        <li>SEBI Investor Certification - NISM</li>
+                        <li>Listing on Social Stock Exchange - NISM</li>
+                        <li>Human Resource Management - Suvidha Foundation</li>
+                        <li>CRM & Sales Forecasting - HP LIFE</li>
+                        <li>Introduction to AI - Infosys Springboard</li>
+                        <li>Marketing in a Digital World - University of Illinois</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- SKILLS SECTION -->
-        <section id="skills" class="hidden">
-            <h2>Professional Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Finance & Management</h3>
-                    <div class="skill-bar"><p><span>Financial Auditing</span><span>85%</span></p><div class="progress"><div class="progress-bar" data-width="85%"></div></div></div>
-                    <div class="skill-bar"><p><span>Ledger Reconciliation</span><span>90%</span></p><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
-                    <div class="skill-bar"><p><span>Human Resources</span><span>75%</span></p><div class="progress"><div class="progress-bar" data-width="75%"></div></div></div>
-                </div>
-                <div class="skill-category">
-                    <h3>Digital Marketing & Tech</h3>
-                    <div class="skill-bar"><p><span>SEO Strategy</span><span>95%</span></p><div class="progress"><div class="progress-bar" data-width="95%"></div></div></div>
-                    <div class="skill-bar"><p><span>Content Creation (WordPress)</span><span>90%</span></p><div class="progress"><div class="progress-bar" data-width="90%"></div></div></div>
-                    <div class="skill-bar"><p><span>CRM Systems</span><span>80%</span></p><div class="progress"><div class="progress-bar" data-width="80%"></div></div></div>
-                </div>
+        <section id="skills" class="animated-section">
+            <h2>Technical & Professional Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Microsoft Excel</div>
+                <div class="skill-item">PowerPoint & Word</div>
+                <div class="skill-item">CRM Systems</div>
+                <div class="skill-item">SEO</div>
+                <div class="skill-item">WordPress</div>
+                <div class="skill-item">Social Media Management</div>
+                <div class="skill-item">Content Creation</div>
+                <div class="skill-item">Financial Auditing</div>
             </div>
         </section>
 
         <!-- CONTACT SECTION -->
-        <section id="contact" class="hidden">
+        <section id="contact" class="animated-section">
             <h2>Get in Touch</h2>
-            <div id="contact-gate">
-                <div id="math-problem-container">
-                    <p>To reveal my contact details, please solve this simple math problem:</p>
-                    <div id="math-question">What is 5 + 3?</div>
-                    <input type="text" id="math-answer" placeholder="Your Answer">
-                    <button id="check-answer-btn" class="btn">Submit</button>
-                </div>
-                <div id="hidden-contact-details">
-                    <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:arpitmishra3095@gmail.com">arpitmishra3095@gmail.com</a></p>
-                        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/arpit-mishra19" target="_blank">linkedin.com/in/arpit-mishra19</a></p>
-                        <p><i class="fas fa-phone"></i> +91 7017251402</p>
-                    </div>
-                </div>
+            <p>I am always open to discussing new opportunities and collaborations. Feel free to reach out!</p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:arpitmishra3095@gmail.com">arpitmishra3095@gmail.com</a></p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/arpit-mishra19" target="_blank">linkedin.com/in/arpit-mishra19</a></p>
             </div>
         </section>
     </main>
@@ -222,6 +387,7 @@
         <p>&copy; 2025 Arpit Mishra. All Rights Reserved.</p>
     </footer>
 
+    <!-- JAVASCRIPT FOR THEME SWITCHER AND ANIMATIONS -->
     <script>
         // --- THEME SWITCHER LOGIC ---
         const themeButtons = document.querySelectorAll('.theme-button');
@@ -232,71 +398,20 @@
             });
         });
 
-        // --- SCROLL-TRIGGERED ANIMATIONS & SKILL BARS ---
+        // --- NEW: SCROLL-TRIGGERED ANIMATION LOGIC ---
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    // Animate skill bars when they become visible
-                    if (entry.target.id === 'skills') {
-                        const progressBars = document.querySelectorAll('.progress-bar');
-                        progressBars.forEach(bar => {
-                            bar.style.width = bar.getAttribute('data-width');
-                        });
-                    }
-                } else {
-                    // Optional: remove class to re-animate on scroll up
-                    // entry.target.classList.remove('show');
+                    entry.target.classList.add('is-visible');
                 }
             });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
         });
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-        
-        // --- TRICKY CONTACT FORM LOGIC ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const questionEl = document.getElementById('math-question');
-            const answerInput = document.getElementById('math-answer');
-            const checkBtn = document.getElementById('check-answer-btn');
-            const gateContainer = document.getElementById('math-problem-container');
-            const hiddenDetails = document.getElementById('hidden-contact-details');
 
-            let correctAnswer;
-
-            function generateProblem() {
-                const num1 = Math.floor(Math.random() * 10) + 1;
-                const num2 = Math.floor(Math.random() * 10) + 1;
-                const operator = Math.random() > 0.5 ? '+' : '-';
-
-                // Ensure the result is not negative for simplicity
-                if (operator === '-' && num1 < num2) {
-                    questionEl.textContent = `What is ${num2} - ${num1}?`;
-                    correctAnswer = num2 - num1;
-                } else {
-                    questionEl.textContent = `What is ${num1} ${operator} ${num2}?`;
-                    correctAnswer = operator === '+' ? num1 + num2 : num1 - num2;
-                }
-            }
-
-            checkBtn.addEventListener('click', () => {
-                const userAnswer = parseInt(answerInput.value, 10);
-                if (userAnswer === correctAnswer) {
-                    gateContainer.style.transition = 'opacity 0.5s';
-                    gateContainer.style.opacity = '0';
-                    setTimeout(() => {
-                        gateContainer.style.display = 'none';
-                        hiddenDetails.classList.add('revealed');
-                    }, 500);
-                } else {
-                    answerInput.classList.add('shake');
-                    setTimeout(() => {
-                        answerInput.classList.remove('shake');
-                    }, 500);
-                    answerInput.value = '';
-                }
-            });
-
-            generateProblem();
+        const sections = document.querySelectorAll('.animated-section');
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
