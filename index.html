@@ -1,418 +1,1790 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="white">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpit Mishra | Finance & Digital Marketing Portfolio</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Arpit Mishra</title>
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!--
+    - Embedded CSS
+  -->
+  <style>
+    /*-----------------------------------*\
+ * #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+    :root {
+      /**
+   * colors
+   */
+
+      /* dark colors */
+      --bg-gradient-onyx: linear-gradient( to bottom right,
+          hsl(240, 1%, 25%) 3%,
+          hsl(0, 0%, 19%) 97%);
+      --bg-gradient-jet: linear-gradient( to bottom right,
+          hsla(240, 1%, 18%, 0.251) 0%,
+          hsla(240, 2%, 11%, 0) 100%),
+        hsl(240, 2%, 13%);
+      --jet: hsl(0, 0%, 22%);
+      --onyx: hsl(240, 1%, 17%);
+      --eerie-black-1: hsl(240, 2%, 13%);
+      --eerie-black-2: hsl(240, 2%, 12%);
+      --smoky-black: hsl(0, 0%, 7%);
+      --white-1: hsl(0, 0%, 100%);
+      --white-2: hsl(0, 0%, 98%);
+      --orange-yellow-crayola: hsl(45, 100%, 72%);
+      --vegas-gold: hsl(45, 54%, 58%);
+      --light-gray: hsl(0, 0%, 84%);
+      --light-gray-70: hsla(0, 0%, 84%, 0.7);
+      --bittersweet-shimmer: hsl(0, 43%, 51%);
+
+      /**
+   * typography
+   */
+
+      --ff-poppins: 'Poppins', sans-serif;
+
+      --fs-1: 24px;
+      --fs-2: 18px;
+      --fs-3: 18px;
+      --fs-4: 16px;
+      --fs-5: 14px;
+      --fs-6: 13px;
+      --fs-7: 12px;
+      --fs-8: 11px;
+
+      --fw-300: 300;
+      --fw-400: 400;
+      --fw-500: 500;
+      --fw-600: 600;
+
+      /**
+   * spacing
+   */
+
+      --spacing-1: 0.5rem;
+      --spacing-2: 1rem;
+      --spacing-3: 1.25rem;
+      --spacing-4: 1.5rem;
+      --spacing-5: 1.875rem;
+      --spacing-6: 2.5rem;
+      --spacing-7: 3.125rem;
+      --spacing-8: 3.75rem;
+
+      /**
+   * shadow
+   */
+
+      --shadow-1: 0 5px 20px 0 hsla(240, 2%, 11%, 0.1);
+      --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+      --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
+      --shadow-4: 0 10px 15px hsla(0, 0%, 0%, 0.1);
+      --shadow-5: 0px 24px 80px hsla(0, 0%, 0%, 0.25);
+
+
+      /**
+   * border radius
+   */
+
+      --radius-4: 4px;
+      --radius-8: 8px;
+      --radius-12: 12px;
+      --radius-16: 16px;
+      --radius-20: 20px;
+      --radius-24: 24px;
+
+
+      /**
+   * transition
+   */
+
+      --transition-1: 0.25s ease;
+      --transition-2: 0.5s ease;
+      --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img,
+    ion-icon,
+    a,
+    button,
+    time,
+    span {
+      display: block;
+    }
+
+    button {
+      font: inherit;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      background: none;
+      font: inherit;
+    }
+
+    ::selection {
+      background: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+    }
+
+    :focus {
+      outline-color: var(--orange-yellow-crayola);
+    }
+
+    html {
+      font-family: var(--ff-poppins);
+    }
+
+    body {
+      background: var(--smoky-black);
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+ * #REUSED STYLE
+\*-----------------------------------*/
+
+    .sidebar,
+    article {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: var(--radius-20);
+      padding: var(--spacing-5);
+      box-shadow: var(--shadow-2);
+      z-index: 1;
+    }
+
+    .separator {
+      width: 100%;
+      height: 1px;
+      background: var(--jet);
+      margin: 16px 0;
+    }
+
+    .icon-box {
+      position: relative;
+      background: var(--bg-gradient-jet);
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: var(--white-2);
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+    }
+
+    .icon-box::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--eerie-black-1);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .icon-box ion-icon {
+      --ionicon-stroke-width: 35px;
+    }
+
+    article {
+      display: none;
+    }
+
+    article.active {
+      display: block;
+      animation: fade 0.5s ease backwards;
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .h2,
+    .h3,
+    .h4,
+    .h5 {
+      color: var(--white-2);
+      text-transform: capitalize;
+    }
+
+    .h2 {
+      font-size: var(--fs-1);
+      position: relative;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: var(--bg-gradient-jet);
+      border-radius: 3px;
+    }
+
+
+    .h3 {
+      font-size: var(--fs-3);
+    }
+
+    .h4 {
+      font-size: var(--fs-4);
+      font-weight: var(--fw-600);
+    }
+
+    .h5 {
+      font-size: var(--fs-6);
+      font-weight: var(--fw-500);
+    }
+
+    .article-title {
+      font-size: var(--fs-1);
+      font-weight: var(--fw-600);
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--jet);
+      margin-bottom: 30px;
+    }
+
+    .content-card {
+      position: relative;
+      background: var(--bg-gradient-jet);
+      padding: var(--spacing-4);
+      border-radius: var(--radius-16);
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+    }
     
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    .content-card::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        background: var(--eerie-black-1);
+        border-radius: inherit;
+        z-index: -1;
+    }
 
-    <style>
-        /* --- Google Fonts Import --- */
-        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+    .has-scrollbar {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-snap-type: inline mandatory;
+      padding-bottom: 25px;
+    }
 
-        /* --- THEME DEFINITIONS (CSS VARIABLES) --- */
-        :root {
-            /* --- Base & Transition Variables --- */
-            --transition-speed: 0.4s;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.2);
+    .has-scrollbar::-webkit-scrollbar {
+      height: 10px;
+    }
 
-            /* --- White Theme (Default) --- */
-            --primary-color: #1a237e;      /* Deep Indigo Blue */
-            --secondary-color: #c5a054;    /* Golden Amber */
-            --background-color: #f5f5f5;   /* Light Grey */
-            --surface-color: #ffffff;      /* White */
-            --text-color: #333333;         /* Dark Grey */
-            --light-text-color: #f0f0f0;   /* Light Text on Dark BG */
-            --header-bg: rgba(255, 255, 255, 0.85);
-            --header-text: #1a237e;
-            --header-logo: var(--secondary-color);
-        }
+    .has-scrollbar::-webkit-scrollbar-track {
+      background: var(--onyx);
+      border-radius: 5px;
+    }
 
-        [data-theme='blue'] {
-            --primary-color: #0d47a1;      /* Deep Blue */
-            --secondary-color: #42a5f5;    /* Lighter Blue */
-            --background-color: #e3f2fd;   /* Very Light Blue */
-            --surface-color: #ffffff;
-            --text-color: #212121;
-            --light-text-color: #ffffff;
-            --header-bg: rgba(255, 255, 255, 0.85);
-            --header-text: #0d47a1;
-            --header-logo: var(--secondary-color);
-        }
+    .has-scrollbar::-webkit-scrollbar-thumb {
+      background: var(--orange-yellow-crayola);
+      border-radius: 5px;
+    }
 
-        [data-theme='green'] {
-            --primary-color: #1b5e20;      /* Dark Green */
-            --secondary-color: #66bb6a;    /* Lighter Green */
-            --background-color: #e8f5e9;   /* Very Light Green */
-            --surface-color: #ffffff;
-            --text-color: #1b5e20;
-            --light-text-color: #ffffff;
-            --header-bg: rgba(255, 255, 255, 0.85);
-            --header-text: #1b5e20;
-            --header-logo: var(--secondary-color);
-        }
 
-        [data-theme='dark'] {
-            --primary-color: #66bb6a;      /* Light Green (as primary on dark) */
-            --secondary-color: #c5a054;    /* Golden Amber */
-            --background-color: #121212;   /* True Black */
-            --surface-color: #1e1e1e;      /* Dark Grey */
-            --text-color: #e0e0e0;         /* Light Grey Text */
-            --light-text-color: #121212;   /* Dark Text for buttons */
-            --header-bg: rgba(30, 30, 30, 0.85);
-            --header-text: #f5f5f5;
-            --header-logo: var(--primary-color);
-        }
-        
-        /* --- General Body Styles & Typography --- */
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-        }
 
-        /* --- NEW: Scroll Animation Styles --- */
-        .animated-section {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .animated-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /*-----------------------------------*\
+ * #MAIN
+\*-----------------------------------*/
 
-        /* --- Theme Switcher --- */
-        .theme-switcher {
-            position: fixed;
-            top: 100px;
-            right: 0;
-            background: var(--surface-color);
-            padding: 10px;
-            border-radius: 10px 0 0 10px;
-            box-shadow: -2px 2px 10px var(--shadow-light);
-            z-index: 2000;
-            transition: all var(--transition-speed);
-        }
-        .theme-button {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            border: 1px solid var(--text-color);
-            cursor: pointer;
-            display: block;
-            margin: 8px 0;
-            transition: transform var(--transition-speed);
-        }
-        .theme-button:hover { transform: scale(1.2); }
-        #btn-white { background: #f5f5f5; }
-        #btn-blue { background: #0d47a1; }
-        #btn-green { background: #1b5e20; }
-        #btn-dark { background: #121212; }
+    main {
+      margin: 15px;
+      max-width: 1200px;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
 
-        /* --- Header and Navigation --- */
-        header {
-            background: var(--header-bg);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px var(--shadow-light);
-            transition: background-color var(--transition-speed);
-        }
-        nav { display: flex; justify-content: space-between; align-items: center; width: 90%; margin: auto; }
-        nav .logo h1 { margin: 0; font-family: 'Lora', serif; font-size: 1.8rem; color: var(--header-logo); transition: color var(--transition-speed); }
-        nav ul { list-style: none; display: flex; padding: 0; }
-        nav ul li { margin-left: 25px; }
-        nav a { color: var(--header-text); text-decoration: none; font-weight: bold; padding: 8px 15px; border-radius: 5px; position: relative; transition: color var(--transition-speed) ease; }
-        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 50%; background-color: var(--secondary-color); transition: all var(--transition-speed) ease-in-out; }
-        nav a:hover, nav a.active { color: var(--secondary-color); }
-        nav a:hover::after, nav a.active::after { width: 100%; left: 0; }
-        
-        /* --- General Container & Section Styles --- */
-        main { width: 85%; max-width: 1200px; margin: auto; overflow: hidden; padding: 3rem 0; }
-        section { padding: 3rem; margin-bottom: 2.5rem; background: var(--surface-color); border-radius: 12px; box-shadow: 0 8px 25px var(--shadow-light); transition: background-color var(--transition-speed); }
-        h2 { font-family: 'Lora', serif; font-size: 2.5rem; color: var(--primary-color); text-align: center; margin-bottom: 2.5rem; position: relative; transition: color var(--transition-speed); }
-        h2::after { content: ''; display: block; width: 80px; height: 4px; background: var(--secondary-color); margin: 10px auto 0; border-radius: 2px; transition: background-color var(--transition-speed); }
 
-        /* --- Home/Hero Section --- */
-        #home { display: flex; align-items: center; justify-content: space-around; min-height: 90vh; }
-        .hero-text { max-width: 55%; }
-        .hero-text h2 { font-size: 3.5rem; line-height: 1.2; text-align: left; }
-        .hero-text h2::after { margin: 10px 0 0; }
-        .hero-text p { font-size: 1.2rem; margin-bottom: 30px; }
-        .hero-image img { max-width: 320px; border-radius: 50%; border: 8px solid var(--secondary-color); box-shadow: 0 10px 30px var(--shadow-dark); transition: all var(--transition-speed); }
-        .hero-image:hover img { transform: scale(1.05); border-color: var(--primary-color); }
-        .btn { display: inline-block; background: var(--secondary-color); color: var(--light-text-color); padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 50px; transition: all var(--transition-speed) ease; box-shadow: 0 4px 15px var(--shadow-light); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow-dark); background: var(--primary-color); }
+    /*-----------------------------------*\
+ * #SIDEBAR
+\*-----------------------------------*/
 
-        /* --- Features Section --- */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .feature-card { text-align: center; padding: 30px; border-radius: 10px; transition: all var(--transition-speed); }
-        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px var(--shadow-light); }
-        .feature-card .icon { font-size: 3rem; color: var(--secondary-color); margin-bottom: 15px; transition: color var(--transition-speed); }
-        .feature-card h3 { color: var(--primary-color); margin-bottom: 10px; transition: color var(--transition-speed); }
+    .sidebar {
+      margin-bottom: 15px;
+      max-height: 112px;
+      overflow: hidden;
+      transition: var(--transition-2);
+    }
 
-        /* --- Experience Timeline --- */
-        .timeline { position: relative; padding-left: 40px; border-left: 4px solid var(--primary-color); transition: border-color var(--transition-speed); }
-        .timeline-item { margin-bottom: 2.5rem; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -52px; top: 5px; width: 20px; height: 20px; background: var(--surface-color); border: 4px solid var(--primary-color); border-radius: 50%; transition: all var(--transition-speed) ease; }
-        .timeline-item:hover::before { background: var(--secondary-color); transform: scale(1.2); }
-        .timeline-item h3 { font-family: 'Lora', serif; color: var(--primary-color); }
-        .timeline-item p { font-style: italic; color: #555; }
-        [data-theme='dark'] .timeline-item p { color: #aaa; }
-        .timeline-item ul { list-style-type: '✓  '; padding-left: 20px; }
-        
-        /* --- Projects Section --- */
-        .project-card { display: flex; flex-direction: column; background: transparent; padding: 0; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 5px 15px var(--shadow-light); transition: all var(--transition-speed) ease; overflow: hidden; }
-        [data-theme='dark'] .project-card { border: 1px solid #444; }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 12px 25px var(--shadow-dark); }
-        .project-image img { width: 100%; height: 250px; object-fit: cover; display: block; }
-        .project-content { padding: 25px; }
+    .sidebar.active {
+      max-height: 405px;
+    }
 
-        /* --- Achievements & Certifications --- */
-        .achievements-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .achievement-card, .certification-list { padding: 20px; }
-        .achievement-card h3 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 15px; }
-        .cert-list { list-style-type: none; padding-left: 0; }
-        .cert-list li { padding: 10px 0; border-bottom: 1px dashed #ccc; transition: all var(--transition-speed); }
-        [data-theme='dark'] .cert-list li { border-bottom-color: #444; }
-        .cert-list li:hover { background: var(--background-color); padding-left: 10px; }
-        .cert-list li::before { content: '🎓 '; color: var(--secondary-color); }
+    .sidebar-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-bottom: 15px;
+    }
 
-        /* --- Skills Section --- */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
-        .skill-item { background: var(--primary-color); color: var(--light-text-color); padding: 12px 20px; border-radius: 50px; font-size: 1rem; font-weight: 500; transition: all var(--transition-speed) ease; }
-        .skill-item:hover { transform: scale(1.1); box-shadow: 0 5px 15px var(--shadow-dark); background: var(--secondary-color); color: var(--primary-color);}
+    .avatar-box {
+      background: var(--bg-gradient-jet);
+      border-radius: var(--radius-20);
+    }
 
-        /* --- Contact & Footer --- */
-        #contact { text-align: center; }
-        .contact-info p { font-size: 1.2rem; }
-        .contact-info a { color: var(--primary-color); text-decoration: none; font-weight: bold; position: relative; }
-        .contact-info a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: var(--secondary-color); transition: width var(--transition-speed) ease; }
-        .contact-info a:hover::after { width: 100%; }
-        footer { text-align: center; padding: 2rem 0; background: var(--primary-color); color: var(--light-text-color); margin-top: 2rem; transition: all var(--transition-speed); }
+    .avatar-box img {
+      border-radius: inherit;
+    }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 992px) {
-            main { width: 90%; }
-            #home { flex-direction: column-reverse; text-align: center; }
-            .hero-text { max-width: 100%; }
-            .hero-image img { max-width: 280px; margin-bottom: 2rem; }
-            .hero-text h2 { text-align: center; }
-            .hero-text h2::after { margin: 10px auto 0; }
-            .achievements-grid { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            nav ul { display: none; } /* Simplified for example */
-            section { padding: 2rem; }
-            h2 { font-size: 2rem; }
-            .hero-text h2 { font-size: 2.5rem; }
-        }
-    </style>
+    .info-content .name {
+      color: var(--white-2);
+      font-size: 17px;
+      font-weight: var(--fw-500);
+      letter-spacing: -0.25px;
+      margin-bottom: 10px;
+    }
+
+    .info-content .title {
+      color: var(--white-1);
+      background: var(--onyx);
+      font-size: var(--fs-8);
+      font-weight: var(--fw-300);
+      width: max-content;
+      padding: 5px 12px;
+      border-radius: var(--radius-8);
+      text-transform: uppercase;
+    }
+
+    .info_more-btn {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      background: var(--bg-gradient-jet);
+      width: 45px;
+      height: 45px;
+      border-radius: 0 15px;
+      font-size: 15px;
+      color: var(--orange-yellow-crayola);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+      transition: var(--transition-1);
+    }
+
+    .info_more-btn.active ion-icon {
+      transform: rotate(0.5turn);
+    }
+
+    .info_more-btn span {
+      display: none;
+    }
+
+    .info_more-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      background: var(--eerie-black-1);
+      z-index: -1;
+    }
+
+    .sidebar-info_more {
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-2);
+    }
+
+    .sidebar.active .sidebar-info_more {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .contacts-list {
+      padding: 16px 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .contact-item:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    .contact-info .contact-title {
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contact-info :is(.contact-link, time, address) {
+      color: var(--white-2);
+      font-size: var(--fs-7);
+    }
+
+    .contact-info address {
+      font-style: normal;
+    }
+
+    .social-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+      padding-bottom: 4px;
+      padding-left: 7px;
+    }
+
+    .social-item .social-link {
+      color: var(--light-gray-70);
+      font-size: 18px;
+    }
+
+    .social-item .social-link:hover {
+      color: var(--light-gray);
+    }
+
+
+    /*-----------------------------------*\
+ * #MAIN CONTENT
+\*-----------------------------------*/
+
+    .main-content {
+      min-width: 0;
+    }
+
+    .navbar {
+      background: var(--eerie-black-2);
+      border-radius: var(--radius-20) var(--radius-20) 0 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0 10px;
+      box-shadow: var(--shadow-2);
+      z-index: 5;
+    }
+
+    .navbar-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .navbar-link {
+      color: var(--light-gray);
+      font-size: var(--fs-8);
+      padding: 20px 7px;
+      transition: color var(--transition-1);
+    }
+
+    .navbar-link:hover,
+    .navbar-link:focus {
+      color: var(--orange-yellow-crayola);
+    }
+
+    .navbar-link.active {
+      color: var(--orange-yellow-crayola);
+    }
+
+
+    /*-----------------------------------*\
+ * #ABOUT
+\*-----------------------------------*/
+
+    .about .article-title {
+      margin-bottom: 15px;
+    }
+
+    .about-text {
+      color: var(--light-gray);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+    }
+
+    .service {
+      margin-top: 30px;
+    }
+
+    .service-title {
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .service-item {
+      position: relative;
+      background: var(--bg-gradient-jet);
+      padding: 20px;
+      border-radius: var(--radius-16);
+      box-shadow: var(--shadow-2);
+      z-index: 1;
+    }
+
+    .service-item::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--eerie-black-1);
+      border-radius: inherit;
+      z-index: -1;
+    }
+
+    .service-icon-box {
+      margin-bottom: 10px;
+    }
+
+    .service-icon-box img {
+      margin: auto;
+    }
+
+    .service-content-box {
+      text-align: center;
+    }
+
+    .service-item-title {
+      margin-bottom: 7px;
+    }
+
+    .service-item-text {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+    /*-----------------------------------*\
+ * #RESUME
+\*-----------------------------------*/
+
+    .timeline {
+      margin-bottom: 30px;
+    }
+
+    .timeline .title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .timeline-list {
+      font-size: var(--fs-6);
+      margin-left: 45px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .timeline-item-title {
+      font-size: var(--fs-5);
+      line-height: 1.3;
+      margin-bottom: 7px;
+    }
+
+    .timeline-list span {
+      color: var(--vegas-gold);
+      font-weight: var(--fw-400);
+      line-height: 1.6;
+    }
+
+    .timeline-item-text {
+      color: var(--light-gray);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: -30px;
+      width: 1px;
+      height: calc(100% + 50px);
+      background: var(--jet);
+    }
+
+    .timeline-item:last-child::before {
+      height: calc(100% + 25px);
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -33px;
+      height: 6px;
+      width: 6px;
+      background: var(--bg-gradient-jet);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--jet);
+    }
+    
+    .skills-title {
+      margin-bottom: 20px;
+    }
+
+    .skills-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .skills-item .title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .skills-item .title-wrapper ion-icon {
+        color: var(--orange-yellow-crayola);
+        font-size: 18px;
+    }
+
+    .skills-item .skill-text {
+        color: var(--light-gray);
+        font-size: var(--fs-6);
+        font-weight: var(--fw-300);
+        line-height: 1.5;
+    }
+
+
+    /*-----------------------------------*\
+ * #SKILLS & CERTIFICATIONS
+\*-----------------------------------*/
+
+    .section-container {
+        margin-bottom: 30px;
+    }
+
+    .certifications-list, .skills-detailed-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .certifications-item, .skills-detailed-item {
+        color: var(--light-gray);
+        font-size: var(--fs-5);
+        font-weight: var(--fw-300);
+        line-height: 1.6;
+    }
+
+    .certifications-item .certification-title, .skills-detailed-item .skill-category {
+        color: var(--white-2);
+        font-weight: var(--fw-500);
+    }
+
+    .certifications-item .certification-date {
+        color: var(--vegas-gold);
+        font-size: var(--fs-7);
+    }
+
+    .skills-detailed-item ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 5px;
+    }
+
+    .skills-detailed-item li {
+        font-size: var(--fs-6);
+    }
+
+
+    /*-----------------------------------*\
+ * #BLOG
+\*-----------------------------------*/
+
+    .blog-posts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .blog-post-item>a {
+      position: relative;
+      background: var(--onyx);
+      height: 100%;
+      border-radius: var(--radius-16);
+      box-shadow: var(--shadow-4);
+      transition: var(--transition-1);
+    }
+
+    .blog-post-item>a:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-3);
+    }
+
+    .blog-banner-box {
+      width: 100%;
+      height: 200px;
+      border-radius: var(--radius-12);
+      overflow: hidden;
+    }
+
+    .blog-banner-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 15px;
+    }
+
+    .blog-meta {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .blog-meta :is(.blog-category, time) {
+      color: var(--light-gray-70);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+    }
+
+    .blog-meta .dot {
+      background: var(--light-gray-70);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+    }
+
+    .blog-item-title {
+      margin-bottom: 10px;
+      line-height: 1.3;
+      transition: var(--transition-1);
+    }
+
+    .blog-post-item>a:hover .blog-item-title {
+      color: var(--orange-yellow-crayola);
+    }
+
+    .blog-text {
+      color: var(--light-gray);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-300);
+      line-height: 1.6;
+    }
+
+
+    /*-----------------------------------*\
+ * #CONTACT
+\*-----------------------------------*/
+
+    .mapbox {
+      position: relative;
+      height: 250px;
+      width: 100%;
+      border-radius: var(--radius-16);
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+
+    .mapbox figure {
+      height: 100%;
+    }
+
+    .mapbox iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(1) invert(1);
+    }
+
+    .contact-form {
+      margin-bottom: 10px;
+    }
+
+    .form-title {
+      margin-bottom: 20px;
+    }
+
+    .input-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .form-input {
+      color: var(--white-2);
+      font-size: var(--fs-5);
+      font-weight: var(--fw-400);
+      padding: 13px 20px;
+      border: 1px solid var(--jet);
+      border-radius: var(--radius-12);
+      outline: none;
+    }
+
+    .form-input::placeholder {
+      font-weight: var(--fw-500);
+    }
+
+    .form-input:focus {
+      border-color: var(--orange-yellow-crayola);
+    }
+
+    textarea.form-input {
+      min-height: 120px;
+      height: 120px;
+      max-height: 200px;
+      resize: vertical;
+      margin-bottom: 25px;
+    }
+
+    textarea.form-input::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    textarea.form-input::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    textarea.form-input::-webkit-scrollbar-thumb {
+      background: var(--orange-yellow-crayola);
+      border-radius: 5px;
+    }
+
+    .form-btn {
+      position: relative;
+      width: 100%;
+      background: var(--bg-gradient-jet);
+      color: var(--orange-yellow-crayola);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: var(--radius-12);
+      font-size: var(--fs-5);
+      text-transform: capitalize;
+      box-shadow: var(--shadow-1);
+      z-index: 1;
+      transition: var(--transition-1);
+    }
+
+    .form-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      background: var(--eerie-black-1);
+      border-radius: inherit;
+      z-index: -1;
+      transition: var(--transition-1);
+    }
+
+    .form-btn:hover {
+      color: var(--smoky-black);
+    }
+
+    .form-btn:hover::before {
+      background: var(--orange-yellow-crayola);
+    }
+
+    .form-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .form-btn:disabled:hover {
+      color: var(--orange-yellow-crayola);
+    }
+
+    .form-btn:disabled:hover::before {
+      background: var(--eerie-black-1);
+    }
+
+
+
+    /*-----------------------------------*\
+ * #MEDIA QUERIES
+\*-----------------------------------*/
+
+    @media (min-width: 580px) {
+      .sidebar {
+        width: 450px;
+        margin-inline: auto;
+        padding-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      .article {
+        width: 450px;
+        margin-inline: auto;
+      }
+
+      .main-content {
+        width: 450px;
+        margin-inline: auto;
+      }
+
+      .navbar {
+        width: 450px;
+        margin-inline: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 0 0 var(--radius-20) var(--radius-20);
+      }
+
+      .info_more-btn span {
+        display: block;
+        font-size: var(--fs-8);
+      }
+
+      .info_more-btn {
+        top: 0;
+        right: 0;
+        width: auto;
+        height: auto;
+        padding: 10px 15px;
+        border-radius: 0 var(--radius-20);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .service-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 25px;
+      }
+      
+      .skills-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .certifications-list, .skills-detailed-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .input-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .form-btn {
+        width: max-content;
+        margin-left: auto;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .sidebar {
+        position: sticky;
+        top: 60px;
+        max-height: 500px;
+        margin-bottom: 0;
+        z-index: 1;
+      }
+
+      .sidebar.active {
+        max-height: 500px;
+      }
+
+      .sidebar-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        padding-bottom: 25px;
+      }
+
+      .avatar-box {
+        width: 120px;
+        height: 120px;
+      }
+
+      .info-content .name {
+        font-size: var(--fs-3);
+      }
+
+      .info_more-btn {
+        display: none;
+      }
+
+      .sidebar-info_more {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .main {
+        margin: 60px 0;
+      }
+
+      main {
+        grid-template-columns: 250px 1fr;
+        gap: 30px;
+        align-items: flex-start;
+      }
+
+      .main-content {
+        width: auto;
+        min-height: 100%;
+        margin-inline: 0;
+      }
+
+      .navbar {
+        position: absolute;
+        bottom: auto;
+        top: 0;
+        left: auto;
+        right: 0;
+        width: max-content;
+        border-radius: 0 var(--radius-20);
+        padding: 0 20px;
+        box-shadow: none;
+      }
+
+      .navbar-list {
+        gap: 30px;
+        padding: 0 20px;
+      }
+
+      .navbar-link {
+        font-weight: var(--fw-500);
+      }
+
+      .blog-posts-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1250px) {
+
+      main {
+        max-width: 1100px;
+        grid-template-columns: 300px 1fr;
+      }
+
+      .sidebar {
+        padding: var(--spacing-6);
+      }
+
+      .info_content .name {
+        white-space: nowrap;
+      }
+
+      .contact-info :is(.contact-link, time, address) {
+        font-size: var(--fs-6);
+      }
+
+      .article {
+        padding: var(--spacing-7);
+      }
+
+      .article-title {
+        font-size: var(--fs-2);
+        padding-bottom: 20px;
+      }
+
+      .h2::after {
+        width: 50px;
+        height: 4px;
+      }
+
+      .about-text,
+      .service-item-text {
+        font-size: var(--fs-5);
+      }
+
+      .service-list {
+        gap: 25px;
+      }
+
+      .service-item {
+        padding: 25px;
+      }
+
+      .service-icon-box {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- THEME SWITCHER -->
-    <div class="theme-switcher">
-        <div class="theme-button" id="btn-white"></div>
-        <div class="theme-button" id="btn-blue"></div>
-        <div class="theme-button" id="btn-green"></div>
-        <div class="theme-button" id="btn-dark"></div>
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMzMzMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjQwIiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QU08L3RleHQ+PC9zdmc+" alt="Arpit Mishra" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Arpit Mishra">ARPIT MISHRA</h1>
+          <p class="title">FINANCE & DIGITAL MARKETING</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:arpitmishra3095@gmail.com" class="contact-link">arpitmishra3095@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+917017251402" class="contact-link">+91 7017251402</a>
+            </div>
+          </li>
+          
+          <li class="contact-item">
+            <div class="icon-box">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </div>
+            <div class="contact-info">
+                <p class="contact-title">LinkedIn</p>
+                <a href="https://linkedin.com/in/arpit-mishra19" class="contact-link" target="_blank">linkedin.com/in/arpit-mishra19</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Roorkee, Bhagwanpur, IN</address>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="https://arpitmba.com/" target="_blank" class="social-link">
+              <ion-icon name="globe-outline"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="https://linkedin.com/in/arpit-mishra19" target="_blank" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </aside>
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Skills & Certs</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+        </ul>
+
+      </nav>
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            A dedicated and results-oriented MBA candidate with a major in Finance and a minor in Digital Marketing from Uttaranchal University. Passionate about the intersection of finance and technology, with hands-on experience in auditing, digital content creation, and academic research in FinTech.
+          </p>
+          <p>
+            Proven ability to build and manage online platforms, evidenced by the founding of Definepedia (now ArpitMBA.com), and a strong foundation in SEO and digital marketing strategies. Eager to apply analytical skills and a proactive learning mindset to contribute to a dynamic organization.
+          </p>
+        </section>
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+          <h3 class="h3 service-title">What I'm doing</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box">
+                 <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmIzMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48bGluZSB4MT0iMTIiIHkxPSIyIiB4Mj0iMTIiIHkyPSI2Ii8+PGxpbmUgeDE9IjQuOTMiIHkxPSI0LjkzIiB4Mj0iNy43NiIgeTI9IjcuNzYiLz48bGluZSB4MT0iMiIgeTE9IjEyIiB4Mj0iNiIgeTI9IjEyIi8+PGxpbmUgeDE9IjQuOTMiIHkxPSIxOS4wNyIgeDI9IjcuNzYiIHkyPSIxNi4yNCIvPjxsaW5lIHgxPSIxMiIgeTE9IjE4IiB4Mj0iMTIiIHkyPSIyMiIvPjxsaW5lIHgxPSIxOS4wNyIgeTE9IjE5LjA3IiB4Mj0iMTYuMjQiIHkyPSIxNi4yNCIvPjxsaW5lIHgxPSIyMiIgeTE9IjEyIiB4Mj0iMTgiIHkyPSIxMiIvPjxsaW5lIHgxPSIxOS4wNyIgeTE9IjQuOTMiIHkyPSIxNi4yNCIgeDI9IjcuNzYiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI3Ii8+PC9zdmc+" alt="Financial Auditing icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Financial Auditing</h4>
+                <p class="service-item-text">
+                  Experience in auditing ledgers, verifying compliance, and reconciling financial records.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmIzMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMSIgY3k9IjExIiByPSI4Ii8+PGxpbmUgeDE9IjIxIiB5MT0iMjEiIHgyPSIxNi42NSIgeTI9IjE2LjY1Ii8+PHBhdGggZD0iTTEwLjMyIDE2LjY3YTEgMSAwIDAgMS0uNzEtMS4yNGw1LjE1LTguNTlhMSAxIDAgMSAxIDEuNTIuOTJsLTUuMTUgOC41OWExIDEgMCAwIDEtLjgyLjI3eiIvPjwvc3ZnPg==" alt="Digital Marketing & SEO icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Digital Marketing & SEO</h4>
+                <p class="service-item-text">
+                  Skilled in implementing SEO strategies to boost organic traffic and managing online content platforms.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmIzMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTFjLjQ0LjM5Ljg0Ljg0IDEuMTkgMS4zNE0xMi4wMSAxLjA1Yy0uNTEuMDYtMS4wMi4xNS0xLjUyLjI3TTQuMiAyLjgyYy0uNDQuMzktLjg0Ljg0LTEuMTkgMS4zNE0xMi4wMSAxLjA1VjYgTC0yIDIxbDIzLTQuNUwxMi4wMSAxLjA1eiIvPjxwYXRoIGQ9Ik0xOC43MyAxNC44N0wyMSA5bC00LjUgNEwxOC43MyAxNC44N3oiLz48L3N2Zz4=" alt="Fintech Research icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Fintech Research & Analysis</h4>
+                <p class="service-item-text">
+                  Conducted in-depth research on digital banking, blockchain, and cryptocurrency adoption.
+                </p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmIzMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjAgMTZWMmgybDIgNS0xIDFoLTRsMS00SDZ2MTZoM20yIDJoM3Y0aC0zdi00em0tNCAwaDR2LTJoLTR2MnoiLz48L3N2Zz4=" alt="Content Creation icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Content Creation</h4>
+                <p class="service-item-text">
+                  Founded and managed an educational encyclopedia, publishing over 400 articles and learning modules.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Uttaranchal University - Master of Business Administration</h4>
+              <span>Pursuing</span>
+              <p class="timeline-text">
+                Major in Finance; Minor in Digital Marketing. Founder of arpitMBA.com and student researcher on Fintech.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">College of Engineering Roorkee - Bachelor of Business Administration</h4>
+              <span>Jul 2024</span>
+              <p class="timeline-text">
+                Major in Finance. Graduated with CGPA: 9.02/10; Director's List (Top 10%).
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Auditor/Finance Intern - Life Gem Medi Healthcare</h4>
+                <span>Jun 2025 - Present</span>
+                <p class="timeline-text">
+                  Learned file auditing processes, managed team communications, and developed skills in ledger matching and reconciliation.
+                </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Founder & Creator - Definepedia (arpitMBA.com)</h4>
+              <span>Sep 2022 - Nov 2024</span>
+              <p class="timeline-text">
+                Built an educational encyclopedia for management students. Implemented SEO strategies, boosting organic traffic by 9.34%, and published over 400 articles.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Student Researcher - COER School of Management</h4>
+              <span>Jan 2024 - May 2024</span>
+              <p class="timeline-text">
+                Conducted in-depth research on "Future of Fintech in 2024," exploring digital banking, blockchain, and cryptocurrency adoption in India.
+              </p>
+            </li>
+             <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Project Internship (Human Resource) - Suvidha Foundation</h4>
+                <span>June 2023 - July 2023</span>
+                <p class="timeline-text">
+                  Conducted research on human resource management practices to optimize volunteer coordination and staff productivity.
+                </p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="timeline">
+            <div class="title-wrapper">
+              <div class="icon-box">
+                <ion-icon name="bulb-outline"></ion-icon>
+              </div>
+              <h3 class="h3">Projects</h3>
+            </div>
+            <ol class="timeline-list">
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Fintech Future 2024</h4>
+                <span>Student Research Project</span>
+                <p class="timeline-text">
+                  Researched emerging digital banking solutions and cryptocurrency trends in India. Delivered comprehensive reports and presentations on the impact of fintech innovations.
+                </p>
+              </li>
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">CRM & Sales Forecasting</h4>
+                <span>HP LIFE Training Project</span>
+                <p class="timeline-text">
+                  Completed a practical training module focused on using Customer Relationship Management (CRM) systems for effective sales forecasting and management.
+                </p>
+              </li>
+            </ol>
+        </section>
+
+        <section class="skill">
+            <h3 class="h3 skills-title">My Skills</h3>
+            <div class="content-card">
+                <ul class="skills-list">
+                    <li class="skills-item">
+                        <div class="title-wrapper">
+                            <ion-icon name="server-outline"></ion-icon>
+                            <h5 class="h5">Technical</h5>
+                        </div>
+                        <p class="skill-text">Microsoft Excel (Intermediate), PowerPoint, Word, CRM Systems, Adobe Animate (Beginner).</p>
+                    </li>
+                    <li class="skills-item">
+                        <div class="title-wrapper">
+                            <ion-icon name="share-social-outline"></ion-icon>
+                            <h5 class="h5">Digital Marketing</h5>
+                        </div>
+                        <p class="skill-text">SEO, WordPress, Social Media Management Tools, Whiteboard Animation Tools.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+      </article>
+
+      <!--
+        - #SKILLS & CERTS
+      -->
+
+      <article class="skills-and-certs" data-page="skills & certs">
+
+        <header>
+          <h2 class="h2 article-title">Skills & Certifications</h2>
+        </header>
+
+        <section class="section-container">
+            <h3 class="h3">Certifications</h3>
+            <br>
+            <ul class="certifications-list">
+                <li class="certifications-item">
+                    <p class="certification-title">SEBI Investor Certification Examination</p>
+                    <p class="certification-date">NISM (Feb 2024)</p>
+                </li>
+                <li class="certifications-item">
+                    <p class="certification-title">Listing on Social Stock Exchange</p>
+                    <p class="certification-date">NISM (Feb 2024)</p>
+                </li>
+                <li class="certifications-item">
+                    <p class="certification-title">Marketing in a Digital World</p>
+                    <p class="certification-date">University of Illinois (Jan 2024)</p>
+                </li>
+                <li class="certifications-item">
+                    <p class="certification-title">CRM & Sales Forecasting</p>
+                    <p class="certification-date">HP LIFE (Mar 2024)</p>
+                </li>
+                <li class="certifications-item">
+                    <p class="certification-title">Introduction to Artificial Intelligence</p>
+                    <p class="certification-date">Infosys Springboard (Jan 2024)</p>
+                </li>
+                <li class="certifications-item">
+                    <p class="certification-title">Human Resource Management</p>
+                    <p class="certification-date">Suvidha Foundation (June 2023)</p>
+                </li>
+                <li class="certifications-item">
+                    <p class="certification-title">Time Management</p>
+                    <p class="certification-date">Coursera (Dec 2023)</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section-container">
+            <h3 class="h3">Skills</h3>
+            <br>
+            <ul class="skills-detailed-list">
+                <li class="skills-detailed-item">
+                    <p class="skill-category">Technical Skills</p>
+                    <ul>
+                        <li>Microsoft Excel (Intermediate)</li>
+                        <li>Microsoft PowerPoint & Word</li>
+                        <li>Adobe Animate (Beginner)</li>
+                        <li>CRM Systems</li>
+                    </ul>
+                </li>
+                <li class="skills-detailed-item">
+                    <p class="skill-category">Digital Marketing</p>
+                    <ul>
+                        <li>Search Engine Optimization (SEO)</li>
+                        <li>WordPress</li>
+                        <li>Whiteboard Animation Tools (Intermediate)</li>
+                        <li>Social Media Management Tools</li>
+                    </ul>
+                </li>
+                 <li class="skills-detailed-item">
+                    <p class="skill-category">Languages</p>
+                    <ul>
+                        <li>Hindi (Native)</li>
+                        <li>English (Fluent)</li>
+                    </ul>
+                </li>
+                <li class="skills-detailed-item">
+                    <p class="skill-category">Interests</p>
+                    <ul>
+                        <li>Writing educational blogs</li>
+                        <li>Researching business models</li>
+                        <li>Digital innovation in education</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+      </article>
+
+      <!--
+        - #BLOG
+      -->
+
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiM0NDQiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+RmludGVjaCBpbiBJbmRpYTwvdGV4dD48L3N2Zz4=" alt="The Future of Fintech in India" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Fintech</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-05-20">May 20, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">The Future of Fintech in India: A 2024 Analysis</h3>
+                  <p class="blog-text">
+                    An in-depth look at digital banking, blockchain, and cryptocurrency trends.
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiM0NDQiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U0VPIFN0cmF0ZWdpZXM8L3RleHQ+PC9zdmc+" alt="SEO Strategies" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Marketing</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-03-15">Mar 15, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">5 SEO Strategies That Grew My Educational Website</h3>
+                  <p class="blog-text">
+                    Practical tips on how I boosted organic traffic by over 9% in six months.
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiM0NDQiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+QnVzaW5lc3MgSWRlYXM8L3RleHQ+PC9zdmc+" alt="Building a Content Platform" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Entrepreneurship</p>
+                    <span class="dot"></span>
+                    <time datetime="2024-01-10">Jan 10, 2024</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Building a Niche Content Platform from Scratch</h3>
+                  <p class="blog-text">
+                    The journey of creating arpitMBA.com, from idea to AdSense approval.
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiM0NDQiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSIjY2NjIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+U29jaWFsIFN0b2NrIEV4Y2hhbmdlPC90ZXh0Pjwvc3ZnPg==" alt="Social Stock Exchange" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Finance</p>
+                    <span class="dot"></span>
+                    <time datetime="2023-11-05">Nov 05, 2023</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Unpacking the Social Stock Exchange: A Guide for Investors</h3>
+                  <p class="blog-text">
+                    Exploring the impact and opportunities of the new SSE framework in India.
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55251.33221947241!2d77.8601614217702!3d29.86173995893114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eb37452108c97%3A0x65328892d119a0a1!2sRoorkee%2C%20Uttarakhand%2C%20India!5e0!3m2!1sen!2sus!4v1669818815123!5m2!1sen!2sus" width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          <form action="#" class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+
+      </article>
+
     </div>
 
-    <header>
-        <nav>
-            <div class="logo"><h1>Arpit Mishra</h1></div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  </main>
 
-    <main>
-        <!-- HOME SECTION -->
-        <section id="home" class="animated-section">
-            <div class="hero-text">
-                <h2>Bridging Finance and Digital Marketing for Strategic Growth.</h2>
-                <p>A dynamic and results-oriented professional pursuing an MBA with a specialization in Finance and a minor in Digital Marketing. Passionate about leveraging digital strategies to drive financial innovation and business success.</p>
-                <a href="#contact" class="btn">Get in Touch</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://media.licdn.com/dms/image/v2/D5603AQHJKbOv9qTIqQ/profile-displayphoto-shrink_200_200/B56ZTyr5ymGsAY-/0/1739238383744?e=1759363200&v=beta&t=sacIU5xkcROdWuBgx-G8fM_TieV2tGlWBmy3MgOzkvc" alt="Arpit Mishra">
-            </div>
-        </section>
-        
-        <!-- FEATURES SECTION -->
-        <section id="features" class="animated-section">
-            <h2>Core Competencies</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Financial Analysis</h3>
-                    <p>In-depth analysis of financial records, trend identification, and compliance verification.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3>Digital Marketing</h3>
-                    <p>Executing SEO strategies, content creation, and social media management to boost online presence.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>Entrepreneurial Spirit</h3>
-                    <p>Proven ability to build digital platforms from the ground up, achieving monetization and user growth.</p>
-                </div>
-            </div>
-        </section>
+  <!--
+    - Embedded JS
+  -->
+  <script>
+    'use strict';
 
-        <!-- EXPERIENCE SECTION -->
-        <section id="experience" class="animated-section">
-            <h2>Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Auditor/Finance Intern</h3>
-                    <p><strong>Life Gem Medi Healthcare (India)</strong> | Jun 2025 - Present</p>
-                    <ul>
-                        <li>Learned and applied file auditing processes and compliance verification procedures.</li>
-                        <li>Developed skills in ledger matching and reconciliation of financial records.</li>
-                        <li>Audited ledger entries, HSN codes, and GST numbers to ensure regulatory compliance.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Founder & Creator</h3>
-                    <p><strong>Definepedia (formerly arpitMBA.com)</strong> | Sep 2022 - Nov 2024</p>
-                    <ul>
-                        <li>Founded and built an online educational encyclopedia specializing in management and finance.</li>
-                        <li>Implemented SEO strategies boosting organic traffic by 9.34% within the first 6 months.</li>
-                        <li>Received Google AdSense approval within 4 months of launch, validating platform quality.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    // element toggle function
+    const elementToggleFunc = function(elem) {
+      elem.classList.toggle("active");
+    }
 
-        <!-- PROJECTS SECTION -->
-        <section id="projects" class="animated-section">
-            <h2>Projects</h2>
-            <div class="features-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/tenant-dashboard.jpg" alt="Tenant Record System Dashboard">
-                    </div>
-                    <div class="project-content">
-                        <h3>Tenant Record System</h3>
-                        <p><strong>(Jun 2025 - Present)</strong> - Built a tenant management system with record tracking and database integration, simplifying property management tasks.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="assets/fashion-dashboard.jpg" alt="Tinny Fashion Inventory Dashboard">
-                    </div>
-                    <div class="project-content">
-                        <h3>Tinny Fashion Inventory</h3>
-                        <p><strong>(Jun 2025 - Present)</strong> - Developed a web-based inventory tracking system with sales profit analysis and cost optimization features.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // sidebar variables
+    const sidebar = document.querySelector("[data-sidebar]");
+    const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-        <!-- ACHIEVEMENTS & CERTIFICATIONS SECTION -->
-        <section id="achievements" class="animated-section">
-            <h2>Achievements & Certifications</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card">
-                    <h3>Key Achievements</h3>
-                    <ul>
-                        <li><strong>Director's List (Top 10%)</strong> at COER School of Management (CGPA: 9.02/10).</li>
-                        <li><strong>Founded Definepedia:</strong> Successfully launched and monetized an educational platform, attracting significant organic traffic.</li>
-                        <li><strong>Published Researcher:</strong> Conducted and presented in-depth research on the "Future of Fintech in 2024".</li>
-                    </ul>
-                </div>
-                <div class="certification-list">
-                    <h3>Certifications</h3>
-                    <ul class="cert-list">
-                        <li>SEBI Investor Certification - NISM</li>
-                        <li>Listing on Social Stock Exchange - NISM</li>
-                        <li>Human Resource Management - Suvidha Foundation</li>
-                        <li>CRM & Sales Forecasting - HP LIFE</li>
-                        <li>Introduction to AI - Infosys Springboard</li>
-                        <li>Marketing in a Digital World - University of Illinois</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+    // sidebar toggle functionality for mobile
+    sidebarBtn.addEventListener("click", function() {
+      elementToggleFunc(sidebar);
+    });
 
-        <!-- SKILLS SECTION -->
-        <section id="skills" class="animated-section">
-            <h2>Technical & Professional Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">Microsoft Excel</div>
-                <div class="skill-item">PowerPoint & Word</div>
-                <div class="skill-item">CRM Systems</div>
-                <div class="skill-item">SEO</div>
-                <div class="skill-item">WordPress</div>
-                <div class="skill-item">Social Media Management</div>
-                <div class="skill-item">Content Creation</div>
-                <div class="skill-item">Financial Auditing</div>
-            </div>
-        </section>
+    // contact form variables
+    const form = document.querySelector("[data-form]");
+    const formInputs = document.querySelectorAll("[data-form-input]");
+    const formBtn = document.querySelector("[data-form-btn]");
 
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="animated-section">
-            <h2>Get in Touch</h2>
-            <p>I am always open to discussing new opportunities and collaborations. Feel free to reach out!</p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> <a href="mailto:arpitmishra3095@gmail.com">arpitmishra3095@gmail.com</a></p>
-                <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/arpit-mishra19" target="_blank">linkedin.com/in/arpit-mishra19</a></p>
-            </div>
-        </section>
-    </main>
+    // add event to all form input field
+    for (let i = 0; i < formInputs.length; i++) {
+      formInputs[i].addEventListener("input", function() {
+        // check form validation
+        if (form.checkValidity()) {
+          formBtn.removeAttribute("disabled");
+        } else {
+          formBtn.setAttribute("disabled", "");
+        }
+      });
+    }
 
-    <footer>
-        <p>&copy; 2025 Arpit Mishra. All Rights Reserved.</p>
-    </footer>
+    // page navigation variables
+    const navigationLinks = document.querySelectorAll("[data-nav-link]");
+    const pages = document.querySelectorAll("[data-page]");
 
-    <!-- JAVASCRIPT FOR THEME SWITCHER AND ANIMATIONS -->
-    <script>
-        // --- THEME SWITCHER LOGIC ---
-        const themeButtons = document.querySelectorAll('.theme-button');
-        const htmlElement = document.documentElement;
-        themeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                htmlElement.setAttribute('data-theme', button.id.replace('btn-', ''));
-            });
-        });
+    // add event to all nav link
+    for (let i = 0; i < navigationLinks.length; i++) {
+      navigationLinks[i].addEventListener("click", function() {
+        for (let j = 0; j < pages.length; j++) {
+          if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
+            pages[j].classList.add("active");
+            navigationLinks[j].classList.add("active");
+            window.scrollTo(0, 0);
+          } else {
+            pages[j].classList.remove("active");
+            navigationLinks[j].classList.remove("active");
+          }
+        }
+      });
+    }
+  </script>
 
-        // --- NEW: SCROLL-TRIGGERED ANIMATION LOGIC ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, {
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        });
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-        const sections = document.querySelectorAll('.animated-section');
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
+
 </html>
