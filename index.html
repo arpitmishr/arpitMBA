@@ -1217,6 +1217,8 @@
         max-height: 500px;
         margin-bottom: 0;
         z-index: 1;
+        width: auto; /* Corrected: Resets width to fit grid */
+        margin-inline: 0; /* Corrected: Resets margin */
       }
 
       .sidebar.active {
@@ -1249,11 +1251,8 @@
         visibility: visible;
       }
 
-      .main {
-        margin: 60px 0;
-      }
-
       main {
+        margin: 60px auto;
         grid-template-columns: 250px 1fr;
         gap: 30px;
         align-items: flex-start;
@@ -1544,7 +1543,7 @@
             </li>
             <li class="service-item">
               <div class="service-icon-box">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmIzMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTFjLjQ0LjM5Ljg0Ljg0IDEuMTkgMS4zNE0xMi4wMSAxLjA1Yy0uNTEuMDYtMS4wMi4xNS0xLjUyLjI3TTQuMiAyLjgyYy0uNDQuMzktLjg0Ljg0LTEuMTkgMS4zNE0xMi4wMSAxLjA1VjYgTC0yIDIxbDIzLTQuNUwxMi4wMSAxLjA1eiIvPjxwYXRoIGQ9Ik0xOC43MyAxNC44N0wyMSA5bC00LjUgNEwxOC43MyAxNC44N3oiLz48L3N2Zz4=" alt="Fintech Research icon" width="40">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDIiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmIzMDAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjEgMTFjLjQ0LjM5Ljg0Ljg0IDEuMTkgMS4zNE0xMi4wMSAxLjA1Yy0uNTEuMDYtMS4wMi4xNS0xLjUyLjI3TTQuMiAyLjgyYy0uNDQuMzktLjg0Ljg0LTEuMTkgMS4zNE0xMi4wMSAxLjA1VjYgTC0yIDIxbDIzLTQuNUwxMi4wMSAxLjA1eiIvPjxwYXRoIGQ9Ik0xOC4wNyAxNC44N0wyMSA5bC00LjUgNEwxOC43MyAxNC44N3oiLz48L3N2Zz4=" alt="Fintech Research icon" width="40">
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Fintech Research & Analysis</h4>
