@@ -180,7 +180,172 @@
       background: var(--smoky-black);
     }
 
+/*-----------------------------------*\
+ * #HERO SECTION
+\*-----------------------------------*/
 
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: var(--smoky-black);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent 30%
+    );
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-left, .hero-right {
+    flex: 1;
+    width: 100%;
+}
+
+.hero-left img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero-right h1 {
+    font-size: 3.5rem;
+    color: var(--white-1);
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-right p {
+    font-size: 1.2rem;
+    color: var(--light-gray);
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    animation: fadeInUp 1.2s ease;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--orange-yellow-crayola);
+    border-color: var(--orange-yellow-crayola);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white-1);
+    border-color: var(--white-1);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white-1);
+    color: var(--smoky-black);
+}
+
+/* Glass Effect Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  animation: fadeIn 1s ease;
+}
+
+
+@media (min-width: 768px) {
+    .hero-container {
+        flex-direction: row;
+        text-align: left;
+    }
+    .hero-right {
+        text-align: left;
+    }
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 
 
@@ -1180,6 +1345,25 @@
 </head>
 
 <body>
+
+  <!--
+    - #HERO SECTION
+  -->
+  <section class="hero-section">
+    <div class="hero-container glass-card">
+        <div class="hero-left">
+            <img src="https://i.gifer.com/origin/30/30811358c675a13783c50937a06013e9_w200.gif" alt="Your GIF Photo">
+        </div>
+        <div class="hero-right">
+            <h1>Hello, I'm Arpit</h1>
+            <p>Finance & Digital Marketing Enthusiast</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Download Resume</a>
+                <a href="#" class="btn btn-secondary">Let's Connect</a>
+            </div>
+        </div>
+    </div>
+  </section>
 
   <!--
     - #MAIN
